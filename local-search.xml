@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>computed与闭包</title>
+    <link href="/2022/06/18/computed%E4%B8%8E%E9%97%AD%E5%8C%85/"/>
+    <url>/2022/06/18/computed%E4%B8%8E%E9%97%AD%E5%8C%85/</url>
+    
+    <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述:"></a>概述:</h1><p> 计算属性具有缓存的特点, 特别是当我们一个值的变换因对各值而引起时此时计算属性相对有用。但是，计算属性不能接收参数此时该如何解决哪。</p><h2 id="闭包："><a href="#闭包：" class="headerlink" title="闭包："></a>闭包：</h2><p> 因为计算属性本身不接受参数， 为了可以传参且可以对当前的计算属性可以继续调用,自然而然想到使用闭包返回一个函数的方法。<br> 具体代码举例如下:</p><p> computedOne: function() {<br>    return function (x,y) {<br>          return x+y<br>        }<br>},</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>问题归档</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Vue中key的作用</title>
+    <link href="/2022/06/18/%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3key%E7%9A%84%E4%BD%9C%E7%94%A8/"/>
+    <url>/2022/06/18/%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3key%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
+    
+    <content type="html"><![CDATA[<h1 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h1><p>key值的主要作用是对比虚拟节点提高查找节点的速度。</p><h2 id="虚拟节点的更新："><a href="#虚拟节点的更新：" class="headerlink" title="虚拟节点的更新："></a>虚拟节点的更新：</h2><p>vue和传统的命令式操作dom节点相比, 引入了虚拟Dom的概念在需要更新时并非暴力的移除当前节点而是对于节点进行对比之后判断执行何种操作。<br>虚拟Dom更新主要分为以下几种方式(oldNodes: 更新前的节点列表, newNodes: 当前更新的节点列表)：<br> (1) 新增节点(newNodes列表和oldNodes列表对比未找到的节点)<br> (2) 删除节点(oldNodes中存在但newNodes中不存在)<br> (3) 更新节点(oldNodes和newNodes中存在但是不相同)更新操作也包括移动节点位置。<br> 注：虚拟节点可以理解对象类型的数据具体的diff算法不在此讨论</p><h2 id="key节点的具体作用"><a href="#key节点的具体作用" class="headerlink" title="key节点的具体作用:"></a>key节点的具体作用:</h2><p>  (1) key值不同：<br>    对于key值不同时会重新生成节点进行页面渲染<br>  (2) 对于key值相同：<br>    key值相同时可以加快节点查找速度，对于key值相同的节点会执行更新操作(重要：对比后完全不同的节点会重新生成节点， 对于比后类型相同的节点执行更新操作)</p><h2 id="实际使用中的注意点："><a href="#实际使用中的注意点：" class="headerlink" title="实际使用中的注意点："></a>实际使用中的注意点：</h2><p>  (1) 对于复用的组件必须使用key值否则会有显示问题<br>  (2) 不只在循环中使用key, v-if 和v-else中也应当使用key值<br>  (3) 在具有增删的操作中不应使用循环下表作为key会造成显示问题</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>问题归档</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
