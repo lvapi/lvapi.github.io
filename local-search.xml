@@ -4,11 +4,36 @@
   
   
   <entry>
+    <title>JS单线程执行机制和异步(未完成)</title>
+    <link href="/2022/06/18/JS%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6%E5%92%8C%E5%BC%82%E6%AD%A5/"/>
+    <url>/2022/06/18/JS%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6%E5%92%8C%E5%BC%82%E6%AD%A5/</url>
+    
+    <content type="html"><![CDATA[<h1 id="JS引擎"><a href="#JS引擎" class="headerlink" title="JS引擎:"></a>JS引擎:</h1><p>因为,JS引擎的执行机制为单线程当遇到例如接口请求，需要返回数据的异步操作时并不会阻塞等待数据的返回，而会去执行其它代码因为这样会造成资源浪费。因此，了解执行步骤是前端程序员必须掌握的知识。</p><h1 id="任务队列："><a href="#任务队列：" class="headerlink" title="任务队列："></a>任务队列：</h1><p>（1）任务队列<br>首先我们需要明白以下几件事情：</p><p>JS分为同步任务和异步任务<br>同步任务都在主线程上执行，形成一个执行栈<br>主线程之外，事件触发线程管理着一个任务队列，只要异步任务有了运行结果，就在任务队列之中放置一个事件。<br>一旦执行栈中的所有同步任务执行完毕（此时JS引擎空闲），系统就会读取任务队列，将可运行的异步任务添加到可执行栈中，开始执行。<br>根据规范，事件循环是通过任务队列的机制来进行协调的。一个 Event Loop 中，可以有一个或者多个任务队列(task queue)，一个任务队列便是一系列有序任务(task)的集合；每个任务都有一个任务源(task source)，源自同一个任务源的 task 必须放到同一个任务队列，从不同源来的则被添加到不同队列。 setTimeout&#x2F;Promise 等API便是任务源，而进入任务队列的是他们指定的具体执行任务</p><p>宏任务<br>(macro)task（又称之为宏任务），可以理解是每次执行栈执行的代码就是一个宏任务（包括每次从事件队列中获取一个事件回调并放到执行栈中执行）。</p><p>浏览器为了能够使得JS内部(macro)task与DOM任务能够有序的执行，会在一个(macro)task执行结束后，在下一个(macro)task 执行开始前，对页面进行重新渲染，流程如下：</p><p>(macro)task-&gt;渲染-&gt;(macro)task-&gt;…<br>(macro)task主要包含：script(整体代码)、setTimeout、setInterval、I&#x2F;O、UI交互事件、postMessage、MessageChannel、setImmediate(Node.js 环境)</p><p>微任务<br>microtask（又称为微任务），可以理解是在当前 task 执行结束后立即执行的任务。也就是说，在当前task任务后，下一个task之前，在渲染之前。</p><p>所以它的响应速度相比setTimeout（setTimeout是task）会更快，因为无需等渲染。也就是说，在某一个macrotask执行完后，就会将在它执行期间产生的所有microtask都执行完毕（在渲染前）。</p><p>microtask主要包含：Promise.then、MutaionObserver、process.nextTick(Node.js 环境)</p><h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><p>是异步编程的一种解决方案。</p><p>从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。</p><p>Promise 状态<br>状态的特点<br>Promise 异步操作有三种状态：pending（进行中）、fulfilled（已成功）和 rejected（已失败）。除了异步操作的结果，任何其他操作都无法改变这个状态。</p><p>Promise 对象只有：从 pending 变为 fulfilled 和从 pending 变为 rejected 的状态改变。只要处于 fulfilled 和 rejected ，状态就不会再变了即 resolved（已定型</p><h1 id="Promise的典型使用之-this-nextTick-的执行机制："><a href="#Promise的典型使用之-this-nextTick-的执行机制：" class="headerlink" title="Promise的典型使用之 this.$nextTick() 的执行机制："></a>Promise的典型使用之 this.$nextTick() 的执行机制：</h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>问题归档</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>computed与闭包</title>
     <link href="/2022/06/18/computed%E4%B8%8E%E9%97%AD%E5%8C%85/"/>
     <url>/2022/06/18/computed%E4%B8%8E%E9%97%AD%E5%8C%85/</url>
     
-    <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述:"></a>概述:</h1><p> 计算属性具有缓存的特点, 特别是当我们一个值的变换因对各值而引起时此时计算属性相对有用。但是，计算属性不能接收参数此时该如何解决哪。</p><h2 id="闭包："><a href="#闭包：" class="headerlink" title="闭包："></a>闭包：</h2><p> 因为计算属性本身不接受参数， 为了可以传参且可以对当前的计算属性可以继续调用,自然而然想到使用闭包返回一个函数的方法。<br> 具体代码举例如下:</p><p> computedOne: function() {<br>    return function (x,y) {<br>          return x+y<br>        }<br>},</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述:"></a>概述:</h1><p> 计算属性具有缓存的特点, 特别是当我们一个值的变换因对各值而引起时此时计算属性相对有用。但是，计算属性不能接收参数此时该如何解决哪。</p><h2 id="闭包："><a href="#闭包：" class="headerlink" title="闭包："></a>闭包：</h2><p> 因为计算属性本身不接受参数， 为了可以传参且可以对当前的计算属性可以继续调用,自然而然想到使用闭包返回一个函数的方法。<br> 具体代码举例如下:<br> computedOne: function() {<br>    return function (x,y) {<br>          return x+y<br>        }<br>},</p>]]></content>
     
     
     <categories>
