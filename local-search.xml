@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>如何在自定义组件中使用v-model</title>
+    <link href="/2022/06/20/%E5%A6%82%E4%BD%95%E5%9C%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E4%B8%AD%E4%BD%BF%E7%94%A8v-model/"/>
+    <url>/2022/06/20/%E5%A6%82%E4%BD%95%E5%9C%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E4%B8%AD%E4%BD%BF%E7%94%A8v-model/</url>
+    
+    <content type="html"><![CDATA[<h1 id="概述：v-model"><a href="#概述：v-model" class="headerlink" title="概述：v-model:"></a>概述：v-model:</h1><pre><code class="hljs">在&lt;input v-model=&quot;value&quot; /&gt; 等标签中经常使用v-model来实现数据的绑定。其实我们将上一个标签展开后如下：&lt;input v-bind:value = &#39;value&#39; @input=&quot;(event) = value = event.target.value&quot;&gt;。至此我们将不难发现在自定义组件中 如&lt;my-conpoment v-mode = &#39;value&#39;&gt; 其实如下: 1. 在子组件中定义 props的value属性接受父组件传值。2. 使用 this.$emit(&#39;input&#39;, value) 触发即可实现传值。</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>问题归档</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>JS单线程执行机制和异步(未完成)</title>
     <link href="/2022/06/18/JS%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6%E5%92%8C%E5%BC%82%E6%AD%A5/"/>
     <url>/2022/06/18/JS%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6%E5%92%8C%E5%BC%82%E6%AD%A5/</url>
