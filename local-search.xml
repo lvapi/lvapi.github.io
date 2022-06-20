@@ -4,6 +4,32 @@
   
   
   <entry>
+    <title>vuex的数据持久化</title>
+    <link href="/2022/06/20/vuex%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/"/>
+    <url>/2022/06/20/vuex%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>组件传值</title>
+    <link href="/2022/06/20/%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/"/>
+    <url>/2022/06/20/%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>如何在自定义组件中使用v-model</title>
     <link href="/2022/06/20/%E5%A6%82%E4%BD%95%E5%9C%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E4%B8%AD%E4%BD%BF%E7%94%A8v-model/"/>
     <url>/2022/06/20/%E5%A6%82%E4%BD%95%E5%9C%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E4%B8%AD%E4%BD%BF%E7%94%A8v-model/</url>
