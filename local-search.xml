@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>2022年6月问题记录</title>
+    <link href="/2022/06/22/2022%E5%B9%B46%E6%9C%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
+    <url>/2022/06/22/2022%E5%B9%B46%E6%9C%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+    
+    <content type="html"><![CDATA[<p>2022年6月22日问题记录:<br>(1)对于后端的图片数据需先转译成bolo二进制数据之后使用window对象获取url之后进行图片渲染，接收数据时需使用responseType: blod<br>(2)编码使用模板类型数据的硬编码格式, 对于复杂性问题考虑使用可配置项解决。！！！！！重要。避免模板硬编码可扩展性极差<br>(3)如何准确识别对象的数据类型使用toString自定义对象使用toStringTarget</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>日常问题整理</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>vuex的数据持久化</title>
     <link href="/2022/06/20/vuex%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/"/>
     <url>/2022/06/20/vuex%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/</url>
