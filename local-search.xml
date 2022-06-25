@@ -8,7 +8,7 @@
     <link href="/2022/06/25/Element-getBoundingClientRect-%E7%AE%80%E4%BB%8B/"/>
     <url>/2022/06/25/Element-getBoundingClientRect-%E7%AE%80%E4%BB%8B/</url>
     
-    <content type="html"><![CDATA[<p>概述：在了解这个函数钩子前我们先了解两个有用的内置属性值:<br>(1) window.innerHtmlHeight&#x2F;width 这个属性指当前浏览器页面的高度或宽度，包含滚动距离。<br>(2) Element.clientHeight&#x2F;width 表示当前元素的宽度和高度<br>这个两个属性经常结合这个钩子函数使用。</p>]]></content>
+    <content type="html"><![CDATA[<p>概述：在了解这个函数钩子前我们先了解两个有用的内置属性值:<br>(1) window.innerHtmlHeight&#x2F;width 这个属性指当前浏览器页面的高度或宽度(不包含滚动条距离)。<br>(2) Element.clientHeight&#x2F;width 表示当前元素的宽度和高度不包含元素的边框<br>(3) Element.offsetHeight&#x2F;width 包含元素的边框<br>getBoundingClientRect() 会返回如下值：<br>(1) width&#x2F;height: 包含padding和border(所以此时值和offsetHeight&#x2F;width相等)<br>(2) top&#x2F;left: 元素左上顶点对于视口的距离不包含滚动距离<br>(3) bottom&#x2F;right: 右下的距离不包含滚动条的距离<br>(4) X&#x2F;Y的值大小和left&#x2F;top相等</p>]]></content>
     
     
     <categories>
