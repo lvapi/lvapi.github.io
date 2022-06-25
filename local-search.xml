@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Element.getBoundingClientRect()简介</title>
+    <link href="/2022/06/25/Element-getBoundingClientRect-%E7%AE%80%E4%BB%8B/"/>
+    <url>/2022/06/25/Element-getBoundingClientRect-%E7%AE%80%E4%BB%8B/</url>
+    
+    <content type="html"><![CDATA[<p>概述：在了解这个函数钩子前我们先了解两个有用的内置属性值:<br>(1) window.innerHtmlHeight&#x2F;width 这个属性指当前浏览器页面的高度或宽度，包含滚动距离。<br>(2) Element.clientHeight&#x2F;width 表示当前元素的宽度和高度<br>这个两个属性经常结合这个钩子函数使用。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>有用的函数钩子</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>2022年6月问题记录</title>
     <link href="/2022/06/22/2022%E5%B9%B46%E6%9C%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
     <url>/2022/06/22/2022%E5%B9%B46%E6%9C%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
