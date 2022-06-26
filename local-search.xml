@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>leetcode-9回文数</title>
+    <link href="/2022/06/26/leetcode-9%E5%9B%9E%E6%96%87%E6%95%B0/"/>
+    <url>/2022/06/26/leetcode-9%E5%9B%9E%E6%96%87%E6%95%B0/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isPalindrome</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">reverse</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">if</span>(x &lt; <span class="hljs-number">0</span> || (x % <span class="hljs-number">10</span>) == <span class="hljs-number">0</span> &amp;&amp; x != <span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        &#125;<br>        <span class="hljs-keyword">while</span>(reverse &lt; x)&#123;<br>            reverse = x % <span class="hljs-number">10</span> + reverse * <span class="hljs-number">10</span>;<br>            x = x /<span class="hljs-number">10</span>;<br>        &#125;<br>   <br>        <span class="hljs-type">return</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span>= reverse || x == reverse/<span class="hljs-number">10</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>基础编码</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>leetcode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Element.getBoundingClientRect()简介</title>
     <link href="/2022/06/25/Element-getBoundingClientRect-%E7%AE%80%E4%BB%8B/"/>
     <url>/2022/06/25/Element-getBoundingClientRect-%E7%AE%80%E4%BB%8B/</url>
