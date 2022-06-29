@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>scoped的作用</title>
+    <link href="/2022/06/29/scoped%E7%9A%84%E4%BD%9C%E7%94%A8/"/>
+    <url>/2022/06/29/scoped%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
+    
+    <content type="html"><![CDATA[<p>scoped可以使当前的样式只在当前组件生效避免对于子组件影响而造成而赞成样式的混乱。<br>但是，scoped对于根节点并不起作用，这样是为了更好的实现布局的效果。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>问题归档</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>leetcode-9回文数</title>
     <link href="/2022/06/26/leetcode-9%E5%9B%9E%E6%96%87%E6%95%B0/"/>
     <url>/2022/06/26/leetcode-9%E5%9B%9E%E6%96%87%E6%95%B0/</url>
