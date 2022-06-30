@@ -133,7 +133,7 @@
     <link href="/2022/06/20/%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/"/>
     <url>/2022/06/20/%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/</url>
     
-    <content type="html"><![CDATA[<p>留坑26号补内容</p>]]></content>
+    <content type="html"><![CDATA[<p>(1)父组件向子组件传值props，此时子组件不可以修改父组件的传值<br>(2)子组件向父组件传值当props使用.sync修饰时使用this.$emit(‘update:XXXX’)传值<br>(3)使用v-model<br>(4)使用顶层变量<br>(5)公用信息使用vux例如用户信息token和权限信息<br>(6)父组件向子组件或孙组件传值使用provide&#x2F;inject不允许修改值</p>]]></content>
     
     
     <categories>
