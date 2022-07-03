@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>leetcode-11盛水最多的容器</title>
+    <link href="/2022/07/03/leetcode-11%E7%9B%9B%E6%B0%B4%E6%9C%80%E5%A4%9A%E7%9A%84%E5%AE%B9%E5%99%A8/"/>
+    <url>/2022/07/03/leetcode-11%E7%9B%9B%E6%B0%B4%E6%9C%80%E5%A4%9A%E7%9A%84%E5%AE%B9%E5%99%A8/</url>
+    
+    <content type="html"><![CDATA[<h1 id="思路"><a href="#思路" class="headerlink" title="思路:"></a>思路:</h1><p>当从两端开始时长度最长,此时影响盛水量的将是较低的值，所以将高度较低的值舍弃。将左右指针对撞时完成遍历。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maxArea</span><span class="hljs-params">(<span class="hljs-type">int</span>[] height)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">len</span> <span class="hljs-operator">=</span>  height.length, left = <span class="hljs-number">0</span>, right = height.length - <span class="hljs-number">1</span>, max = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span>(left &lt; right)&#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">area</span> <span class="hljs-operator">=</span> Math.min(height[left], height[right]) * (right - left);<br>            max = Math.max(area, max);<br>            <span class="hljs-keyword">if</span>(height[left] &lt; height[right])&#123;<br>                left++;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                right--;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> max;<br>    &#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>双指针</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>leetcode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>scoped的作用</title>
     <link href="/2022/06/29/scoped%E7%9A%84%E4%BD%9C%E7%94%A8/"/>
     <url>/2022/06/29/scoped%E7%9A%84%E4%BD%9C%E7%94%A8/</url>

@@ -16,22 +16,22 @@
   <meta name="author" content="lvapi">
   <meta name="keywords" content="">
   
-    <meta name="description" content="scoped可以使当前的样式只在当前组件生效避免对于子组件影响而造成而赞成样式的混乱。但是，scoped对于根节点并不起作用，这样是为了更好的实现布局的效果。">
+    <meta name="description" content="思路:当从两端开始时长度最长,此时影响盛水量的将是较低的值，所以将高度较低的值舍弃。将左右指针对撞时完成遍历。 12345678910111213public int maxArea(int[] height) &amp;#123;        int len &#x3D;  height.length, left &#x3D; 0, right &#x3D; height.length - 1, max &#x3D; 0;        w">
 <meta property="og:type" content="article">
-<meta property="og:title" content="scoped的作用">
-<meta property="og:url" content="https://lvapi.github.io/2022/06/29/scoped%E7%9A%84%E4%BD%9C%E7%94%A8/index.html">
+<meta property="og:title" content="leetcode-11盛水最多的容器">
+<meta property="og:url" content="https://lvapi.github.io/2022/07/03/leetcode-11%E7%9B%9B%E6%B0%B4%E6%9C%80%E5%A4%9A%E7%9A%84%E5%AE%B9%E5%99%A8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="scoped可以使当前的样式只在当前组件生效避免对于子组件影响而造成而赞成样式的混乱。但是，scoped对于根节点并不起作用，这样是为了更好的实现布局的效果。">
+<meta property="og:description" content="思路:当从两端开始时长度最长,此时影响盛水量的将是较低的值，所以将高度较低的值舍弃。将左右指针对撞时完成遍历。 12345678910111213public int maxArea(int[] height) &amp;#123;        int len &#x3D;  height.length, left &#x3D; 0, right &#x3D; height.length - 1, max &#x3D; 0;        w">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-29T12:18:10.000Z">
-<meta property="article:modified_time" content="2022-06-29T12:21:29.958Z">
+<meta property="article:published_time" content="2022-07-03T10:48:15.000Z">
+<meta property="article:modified_time" content="2022-07-03T10:52:37.169Z">
 <meta property="article:author" content="lvapi">
-<meta property="article:tag" content="vue">
+<meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>scoped的作用 - Hexo</title>
+  <title>leetcode-11盛水最多的容器 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="scoped的作用"></span>
+            <span id="subtitle" data-typed-text="leetcode-11盛水最多的容器"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-06-29 20:18" pubdate>
-          2022年6月29日 晚上
+        <time datetime="2022-07-03 18:48" pubdate>
+          2022年7月3日 晚上
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          79 字
+          368 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          1 分钟
+          4 分钟
         
       </span>
     
@@ -268,12 +268,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">scoped的作用</h1>
+            <h1 style="display: none">leetcode-11盛水最多的容器</h1>
             
             
               <div class="markdown-body">
                 
-                <p>scoped可以使当前的样式只在当前组件生效避免对于子组件影响而造成而赞成样式的混乱。<br>但是，scoped对于根节点并不起作用，这样是为了更好的实现布局的效果。</p>
+                <h1 id="思路"><a href="#思路" class="headerlink" title="思路:"></a>思路:</h1><p>当从两端开始时长度最长,此时影响盛水量的将是较低的值，所以将高度较低的值舍弃。将左右指针对撞时完成遍历。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maxArea</span><span class="hljs-params">(<span class="hljs-type">int</span>[] height)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">len</span> <span class="hljs-operator">=</span>  height.length, left = <span class="hljs-number">0</span>, right = height.length - <span class="hljs-number">1</span>, max = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span>(left &lt; right)&#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">area</span> <span class="hljs-operator">=</span> Math.min(height[left], height[right]) * (right - left);<br>            max = Math.max(area, max);<br>            <span class="hljs-keyword">if</span>(height[left] &lt; height[right])&#123;<br>                left++;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                right--;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> max;<br>    &#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -292,7 +293,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E9%97%AE%E9%A2%98%E5%BD%92%E6%A1%A3/" class="category-chain-item">问题归档</a>
+  <a href="/categories/%E5%8F%8C%E6%8C%87%E9%92%88/" class="category-chain-item">双指针</a>
   
   
 
@@ -307,7 +308,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/vue/">#vue</a>
+        <a href="/tags/leetcode/">#leetcode</a>
       
     </div>
   
@@ -319,8 +320,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>scoped的作用</div>
-      <div>https://lvapi.github.io/2022/06/29/scoped的作用/</div>
+      <div>leetcode-11盛水最多的容器</div>
+      <div>https://lvapi.github.io/2022/07/03/leetcode-11盛水最多的容器/</div>
     </div>
     <div class="license-meta">
       
@@ -332,7 +333,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年6月29日</div>
+          <div>2022年7月3日</div>
         </div>
       
       
@@ -362,18 +363,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/03/leetcode-11%E7%9B%9B%E6%B0%B4%E6%9C%80%E5%A4%9A%E7%9A%84%E5%AE%B9%E5%99%A8/" title="leetcode-11盛水最多的容器">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">leetcode-11盛水最多的容器</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/26/leetcode-9%E5%9B%9E%E6%96%87%E6%95%B0/" title="leetcode-9回文数">
-                        <span class="hidden-mobile">leetcode-9回文数</span>
+                      <a href="/2022/06/29/scoped%E7%9A%84%E4%BD%9C%E7%94%A8/" title="scoped的作用">
+                        <span class="hidden-mobile">scoped的作用</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
