@@ -16,21 +16,31 @@
   <meta name="author" content="lvapi">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://lvapi.github.io/page/2/index.html">
+    <meta name="description" content="12345678910111213141516public int fillCups(int[] amount) &amp;#123;        int ans &#x3D; 0;        Arrays.sort(amount);        while(amount[2] &gt;&#x3D; 0)&amp;#123;            if(amount[1] &#x3D;&#x3D; 0)&amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode-装满杯子需要的最短时常">
+<meta property="og:url" content="https://lvapi.github.io/2022/07/10/leetcode-%E8%A3%85%E6%BB%A1%E6%9D%AF%E5%AD%90%E9%9C%80%E8%A6%81%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E5%B8%B8/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="12345678910111213141516public int fillCups(int[] amount) &amp;#123;        int ans &#x3D; 0;        Arrays.sort(amount);        while(amount[2] &gt;&#x3D; 0)&amp;#123;            if(amount[1] &#x3D;&#x3D; 0)&amp;#123;">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-10T11:13:32.000Z">
+<meta property="article:modified_time" content="2022-07-10T11:14:52.468Z">
 <meta property="article:author" content="lvapi">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Hexo</title>
+  <title>leetcode-装满杯子需要的最短时常 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -80,7 +90,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 100vh;">
+<div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -185,17 +195,53 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="PETRICHOR"></span>
+            <span id="subtitle" data-typed-text="leetcode-装满杯子需要的最短时常"></span>
           
         </div>
 
         
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-07-10 19:13" pubdate>
+          2022年7月10日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          280 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          3 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
 
-      
-        <div class="scroll-down-bar">
-          <i class="iconfont icon-arrowdown"></i>
-        </div>
       
     </div>
   </div>
@@ -207,214 +253,174 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div id="board"
-          style="margin-top: 0">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">leetcode-装满杯子需要的最短时常</h1>
+            
+            
+              <div class="markdown-body">
                 
+                <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">fillCups</span><span class="hljs-params">(<span class="hljs-type">int</span>[] amount)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        Arrays.sort(amount);<br>        <span class="hljs-keyword">while</span>(amount[<span class="hljs-number">2</span>] &gt;= <span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-keyword">if</span>(amount[<span class="hljs-number">1</span>] == <span class="hljs-number">0</span>)&#123;<br>                ans = ans + amount[<span class="hljs-number">2</span>];<br>                <span class="hljs-keyword">return</span> ans;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                ans++;<br>                amount[<span class="hljs-number">1</span>] = amount[<span class="hljs-number">1</span>] - <span class="hljs-number">1</span>;<br>                amount[<span class="hljs-number">2</span>] = amount[<span class="hljs-number">2</span>] - <span class="hljs-number">1</span>;<br>                Arrays.sort(amount);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br></code></pre></td></tr></table></figure>
 
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/06/18/JS%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6%E5%92%8C%E5%BC%82%E6%AD%A5/" target="_self">
-          JS单线程执行机制和异步(未完成)
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/06/18/JS%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6%E5%92%8C%E5%BC%82%E6%AD%A5/" target="_self">
-        <div>
-          JS引擎:因为,JS引擎的执行机制为单线程当遇到例如接口请求，需要返回数据的异步操作时并不会阻塞等待数据的返回，而会去执行其它代码因为这样会造成资源浪费。因此，了解执行步骤是前端程序员必须掌握的知识。 任务队列：（1）任务队列首先我们需要明白以下几件事情： JS分为同步任务和异步任务同步任务都在主线程上执行，形成一个执行栈主线程之外，事件触发线程管理着一个任务队列，只要异步任务有了运行结果，就在任
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-18 18:16" pubdate>
-              2022-06-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E9%97%AE%E9%A2%98%E5%BD%92%E6%A1%A3/" class="category-chain-item">问题归档</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/vue/">#vue</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/06/18/computed%E4%B8%8E%E9%97%AD%E5%8C%85/" target="_self">
-          computed与闭包
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/06/18/computed%E4%B8%8E%E9%97%AD%E5%8C%85/" target="_self">
-        <div>
-          概述: 计算属性具有缓存的特点, 特别是当我们一个值的变换因对各值而引起时此时计算属性相对有用。但是，计算属性不能接收参数此时该如何解决哪。 闭包： 因为计算属性本身不接受参数， 为了可以传参且可以对当前的计算属性可以继续调用,自然而然想到使用闭包返回一个函数的方法。 具体代码举例如下: 12345 computedOne: function() &amp;#123;    return function
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-18 17:34" pubdate>
-              2022-06-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E9%97%AE%E9%A2%98%E5%BD%92%E6%A1%A3/" class="category-chain-item">问题归档</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/vue/">#vue</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/06/18/%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3key%E7%9A%84%E4%BD%9C%E7%94%A8/" target="_self">
-          Vue中key的作用
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/06/18/%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3key%E7%9A%84%E4%BD%9C%E7%94%A8/" target="_self">
-        <div>
-          概述：key值的主要作用是对比虚拟节点提高查找节点的速度。 虚拟节点的更新：vue和传统的命令式操作dom节点相比, 引入了虚拟Dom的概念在需要更新时并非暴力的移除当前节点而是对于节点进行对比之后判断执行何种操作。虚拟Dom更新主要分为以下几种方式(oldNodes: 更新前的节点列表, newNodes: 当前更新的节点列表)： (1) 新增节点(newNodes列表和oldNodes列表对比
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-18 14:25" pubdate>
-              2022-06-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E9%97%AE%E9%A2%98%E5%BD%92%E6%A1%A3/" class="category-chain-item">问题归档</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/vue/">#vue</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-
-
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </span>
-  </nav>
-
-
-
+                
               </div>
-            </div>
-          </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" class="category-chain-item">贪心算法</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>leetcode-装满杯子需要的最短时常</div>
+      <div>https://lvapi.github.io/2022/07/10/leetcode-装满杯子需要的最短时常/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>lvapi</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年7月10日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
         </div>
       </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/07/05/2022%E5%B9%B4%E4%B8%83%E6%9C%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" title="2022年七月问题记录">
+                        <span class="hidden-mobile">2022年七月问题记录</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
 
     
@@ -508,6 +514,72 @@
 
 
 
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
 

@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>leetcode-装满杯子需要的最短时常</title>
+    <link href="/2022/07/10/leetcode-%E8%A3%85%E6%BB%A1%E6%9D%AF%E5%AD%90%E9%9C%80%E8%A6%81%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E5%B8%B8/"/>
+    <url>/2022/07/10/leetcode-%E8%A3%85%E6%BB%A1%E6%9D%AF%E5%AD%90%E9%9C%80%E8%A6%81%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E5%B8%B8/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">fillCups</span><span class="hljs-params">(<span class="hljs-type">int</span>[] amount)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        Arrays.sort(amount);<br>        <span class="hljs-keyword">while</span>(amount[<span class="hljs-number">2</span>] &gt;= <span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-keyword">if</span>(amount[<span class="hljs-number">1</span>] == <span class="hljs-number">0</span>)&#123;<br>                ans = ans + amount[<span class="hljs-number">2</span>];<br>                <span class="hljs-keyword">return</span> ans;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                ans++;<br>                amount[<span class="hljs-number">1</span>] = amount[<span class="hljs-number">1</span>] - <span class="hljs-number">1</span>;<br>                amount[<span class="hljs-number">2</span>] = amount[<span class="hljs-number">2</span>] - <span class="hljs-number">1</span>;<br>                Arrays.sort(amount);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>贪心算法</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>2022年七月问题记录</title>
     <link href="/2022/07/05/2022%E5%B9%B4%E4%B8%83%E6%9C%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
     <url>/2022/07/05/2022%E5%B9%B4%E4%B8%83%E6%9C%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
