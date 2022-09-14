@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>leetcode-974可被k整除的子数组</title>
+    <link href="/2022/09/14/leetcode-974%E5%8F%AF%E8%A2%ABk%E6%95%B4%E9%99%A4%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/"/>
+    <url>/2022/09/14/leetcode-974%E5%8F%AF%E8%A2%ABk%E6%95%B4%E9%99%A4%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/</url>
+    
+    <content type="html"><![CDATA[<h1 id="思路"><a href="#思路" class="headerlink" title="思路:"></a>思路:</h1><p>前缀和+同余定理+取余运算</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maxArea</span><span class="hljs-params">(<span class="hljs-type">int</span>[] height)</span> &#123;<br>        <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">subarraysDivByK</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> k)</span> &#123;<br>        Map&lt;Integer, Integer&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>();<br>        map.put(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> num: nums)&#123; <br>            sum = sum + num;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">modulus</span> <span class="hljs-operator">=</span> (sum % k + k) % k;<br>            <span class="hljs-keyword">if</span>(map.containsKey(modulus))&#123;<br>               <span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> map.get(modulus);<br>               map.put(modulus, a + <span class="hljs-number">1</span>);<br>               ans = ans + a;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                map.put(modulus, <span class="hljs-number">1</span>);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>前缀和</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>leetcode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>事件总线</title>
     <link href="/2022/07/11/%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/"/>
     <url>/2022/07/11/%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/</url>
