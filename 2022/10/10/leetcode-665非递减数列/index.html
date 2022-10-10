@@ -16,22 +16,24 @@
   <meta name="author" content="lvapi">
   <meta name="keywords" content="">
   
-    <meta name="description" content="思路:前缀和+同余定理+取余运算 12345678910111213141516171819public int maxArea(int[] height) &amp;#123;        public int subarraysDivByK(int[] nums, int k) &amp;#123;        Map&lt;Integer, Integer&gt; map &#x3D; new HashMap()">
+    <meta name="description" content="思路:计算所有位置前不符合 nums[i] &gt; nums[i-1]的个数只可以通过部分测试用例 例如:[3,4,2,3]是不符合条件的。 12345678910111213class Solution &amp;#123;    public boolean checkPossibility(int[] nums) &amp;#123;        int[] dp &#x3D; new int[nums.leng">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode-974可被k整除的子数组">
-<meta property="og:url" content="https://lvapi.github.io/2022/09/14/leetcode-974%E5%8F%AF%E8%A2%ABk%E6%95%B4%E9%99%A4%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/index.html">
+<meta property="og:title" content="leetcode-665非递减数列">
+<meta property="og:url" content="https://lvapi.github.io/2022/10/10/leetcode-665%E9%9D%9E%E9%80%92%E5%87%8F%E6%95%B0%E5%88%97/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="思路:前缀和+同余定理+取余运算 12345678910111213141516171819public int maxArea(int[] height) &amp;#123;        public int subarraysDivByK(int[] nums, int k) &amp;#123;        Map&lt;Integer, Integer&gt; map &#x3D; new HashMap()">
+<meta property="og:description" content="思路:计算所有位置前不符合 nums[i] &gt; nums[i-1]的个数只可以通过部分测试用例 例如:[3,4,2,3]是不符合条件的。 12345678910111213class Solution &amp;#123;    public boolean checkPossibility(int[] nums) &amp;#123;        int[] dp &#x3D; new int[nums.leng">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-09-14T15:01:05.000Z">
-<meta property="article:modified_time" content="2022-09-14T15:02:53.676Z">
+<meta property="og:image" content="c:/Users/lvyan/Desktop/hexo/public/img/leetcode665.jpg">
+<meta property="article:published_time" content="2022-10-10T14:11:10.000Z">
+<meta property="article:modified_time" content="2022-10-10T14:23:39.385Z">
 <meta property="article:author" content="lvapi">
 <meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="c:/Users/lvyan/Desktop/hexo/public/img/leetcode665.jpg">
   
   
   
-  <title>leetcode-974可被k整除的子数组 - Hexo</title>
+  <title>leetcode-665非递减数列 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="leetcode-974可被k整除的子数组"></span>
+            <span id="subtitle" data-typed-text="leetcode-665非递减数列"></span>
           
         </div>
 
@@ -207,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-09-14 23:01" pubdate>
-          2022年9月14日 晚上
+        <time datetime="2022-10-10 22:11" pubdate>
+          2022年10月10日 晚上
         </time>
       </span>
     
@@ -219,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          410 字
+          770 字
         
       </span>
     
@@ -230,7 +232,7 @@
         
         
         
-          4 分钟
+          7 分钟
         
       </span>
     
@@ -268,13 +270,16 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">leetcode-974可被k整除的子数组</h1>
+            <h1 style="display: none">leetcode-665非递减数列</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="思路"><a href="#思路" class="headerlink" title="思路:"></a>思路:</h1><p>前缀和+同余定理+取余运算</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maxArea</span><span class="hljs-params">(<span class="hljs-type">int</span>[] height)</span> &#123;<br>        <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">subarraysDivByK</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> k)</span> &#123;<br>        Map&lt;Integer, Integer&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>();<br>        map.put(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> num: nums)&#123; <br>            sum = sum + num;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">modulus</span> <span class="hljs-operator">=</span> (sum % k + k) % k;<br>            <span class="hljs-keyword">if</span>(map.containsKey(modulus))&#123;<br>               <span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> map.get(modulus);<br>               map.put(modulus, a + <span class="hljs-number">1</span>);<br>               ans = ans + a;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                map.put(modulus, <span class="hljs-number">1</span>);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
+                <h1 id="思路"><a href="#思路" class="headerlink" title="思路:"></a>思路:</h1><p>计算所有位置前不符合 nums[i] &gt; nums[i-1]的个数只可以通过部分测试用例 例如:[3,4,2,3]是不符合条件的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">checkPossibility</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>        <span class="hljs-type">int</span>[] dp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[nums.length+<span class="hljs-number">1</span>];<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; nums.length; i++)&#123;<br>            <span class="hljs-keyword">if</span>(nums[i] &gt; nums[i-<span class="hljs-number">1</span>])&#123;<br>                dp[i] = dp[i - <span class="hljs-number">1</span>];<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                dp[i] = dp[i - <span class="hljs-number">1</span>] + <span class="hljs-number">1</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> dp[nums.length - <span class="hljs-number">1</span>] == <span class="hljs-number">1</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="思路-1"><a href="#思路-1" class="headerlink" title="思路:"></a>思路:</h1><p>对于步骤进行分类讨论如图所示：<br><img src="C:\Users\lvyan\Desktop\hexo\public\img\leetcode665.jpg" srcset="/img/loading.gif" lazyload alt="图片"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">checkPossibility</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; nums.length; i++)&#123;<br>            <span class="hljs-keyword">if</span>(nums[i] &lt; nums[i - <span class="hljs-number">1</span>])&#123;<br>                sum++;<br>                <span class="hljs-keyword">if</span>(sum &gt;= <span class="hljs-number">2</span>)&#123;<br>                    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>                &#125;<br>                <span class="hljs-keyword">if</span>(i - <span class="hljs-number">2</span> &gt;= <span class="hljs-number">0</span> &amp;&amp; nums[i-<span class="hljs-number">2</span>] &lt; nums[i])&#123;<br>                    nums[i - <span class="hljs-number">1</span>] =  nums[i];<br>                &#125;<br>                <span class="hljs-keyword">if</span>(i - <span class="hljs-number">2</span> &gt;= <span class="hljs-number">0</span> &amp;&amp; nums[i-<span class="hljs-number">2</span>] &gt; nums[i])&#123;<br>                    nums[i] = nums[i-<span class="hljs-number">1</span>];<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
                 
               </div>
             
@@ -292,7 +297,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%89%8D%E7%BC%80%E5%92%8C/" class="category-chain-item">前缀和</a>
+  <a href="/categories/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" class="category-chain-item">贪心算法</a>
   
   
 
@@ -319,8 +324,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>leetcode-974可被k整除的子数组</div>
-      <div>https://lvapi.github.io/2022/09/14/leetcode-974可被k整除的子数组/</div>
+      <div>leetcode-665非递减数列</div>
+      <div>https://lvapi.github.io/2022/10/10/leetcode-665非递减数列/</div>
     </div>
     <div class="license-meta">
       
@@ -332,7 +337,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年9月14日</div>
+          <div>2022年10月10日</div>
         </div>
       
       
@@ -362,18 +367,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/10/10/leetcode-665%E9%9D%9E%E9%80%92%E5%87%8F%E6%95%B0%E5%88%97/" title="leetcode-665非递减数列">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">leetcode-665非递减数列</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/11/%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/" title="事件总线">
-                        <span class="hidden-mobile">事件总线</span>
+                      <a href="/2022/09/14/leetcode-974%E5%8F%AF%E8%A2%ABk%E6%95%B4%E9%99%A4%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/" title="leetcode-974可被k整除的子数组">
+                        <span class="hidden-mobile">leetcode-974可被k整除的子数组</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
