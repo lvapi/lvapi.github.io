@@ -8,7 +8,7 @@
     <link href="/2022/10/12/leetcode-64-%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/"/>
     <url>/2022/10/12/leetcode-64-%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<img class=".jpg"><p><img src="/2022/10/12/leetcode-64-%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/image.jpg" alt="图片"></p>]]></content>
     
     
     
@@ -67,31 +67,6 @@
   
   
   <entry>
-    <title>事件总线</title>
-    <link href="/2022/07/11/%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/"/>
-    <url>/2022/07/11/%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/</url>
-    
-    <content type="html"><![CDATA[<p>今天有用到事件总线记录下周末填坑</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>问题归档</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>vue</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>leetcode-装满杯子需要的最短时常</title>
     <link href="/2022/07/10/leetcode-%E8%A3%85%E6%BB%A1%E6%9D%AF%E5%AD%90%E9%9C%80%E8%A6%81%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E5%B8%B8/"/>
     <url>/2022/07/10/leetcode-%E8%A3%85%E6%BB%A1%E6%9D%AF%E5%AD%90%E9%9C%80%E8%A6%81%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E5%B8%B8/</url>
@@ -105,31 +80,6 @@
       
     </categories>
     
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>2022年七月问题记录</title>
-    <link href="/2022/07/05/2022%E5%B9%B4%E4%B8%83%E6%9C%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
-    <url>/2022/07/05/2022%E5%B9%B4%E4%B8%83%E6%9C%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
-    
-    <content type="html"><![CDATA[<p>(1) uni-app加载CDN文件时需要在app.vue  onLanunch时加载不能在以前的index.html中加载了</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>日常问题整理</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>vue</tag>
-      
-    </tags>
     
   </entry>
   
@@ -221,56 +171,6 @@
     <categories>
       
       <category>有用的函数钩子</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>vue</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>2022年6月问题记录</title>
-    <link href="/2022/06/22/2022%E5%B9%B46%E6%9C%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
-    <url>/2022/06/22/2022%E5%B9%B46%E6%9C%88%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
-    
-    <content type="html"><![CDATA[<p>2022年6月22日问题记录:<br>(1)对于后端的图片数据需先转译成bolo二进制数据之后使用window对象获取url之后进行图片渲染，接收数据时需使用responseType: blod<br>(2)编码使用模板类型数据的硬编码格式, 对于复杂性问题考虑使用可配置项解决。！！！！！重要。避免模板硬编码可扩展性极差<br>(3)如何准确识别对象的数据类型使用toString自定义对象使用toStringTarget</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>日常问题整理</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>vue</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>vuex的数据持久化</title>
-    <link href="/2022/06/20/vuex%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/"/>
-    <url>/2022/06/20/vuex%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/</url>
-    
-    <content type="html"><![CDATA[<p>留坑26号补内容</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>问题归档</category>
       
     </categories>
     
