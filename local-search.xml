@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>翻转卡片loading</title>
+    <link href="/2022/10/23/%E7%BF%BB%E8%BD%AC%E5%8D%A1%E7%89%87loading/"/>
+    <url>/2022/10/23/%E7%BF%BB%E8%BD%AC%E5%8D%A1%E7%89%87loading/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.cardLoading</span>&#123;<br>  <span class="hljs-attribute">width</span>: <span class="hljs-number">60px</span>;<br>  <span class="hljs-attribute">height</span>: <span class="hljs-number">60px</span>;<br>  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">rgb</span>(<span class="hljs-number">87</span>, <span class="hljs-number">88</span>, <span class="hljs-number">88</span>);<br>  <span class="hljs-attribute">animation</span>: cardAnimation <span class="hljs-number">1.2s</span> infinite ease-in-out;<br>&#125;<br><span class="hljs-keyword">@keyframes</span> cardAnimation &#123;<br>    <span class="hljs-number">0%</span>&#123;<br>      <span class="hljs-attribute">transform</span>:  <span class="hljs-built_in">perspective</span>(<span class="hljs-number">120px</span>) <span class="hljs-built_in">rotateX</span>(<span class="hljs-number">0deg</span>) <span class="hljs-built_in">rotateY</span>(<span class="hljs-number">0deg</span>);<br>    &#125;<br>    <span class="hljs-number">50%</span>&#123;<br>      <span class="hljs-attribute">transform</span>:  <span class="hljs-built_in">perspective</span>(<span class="hljs-number">120px</span>) <span class="hljs-built_in">rotateY</span>(<span class="hljs-number">180deg</span>) <span class="hljs-built_in">rotateX</span>(<span class="hljs-number">0deg</span>);<br>    &#125;<br>    <span class="hljs-number">100%</span>&#123;<br>      <span class="hljs-attribute">transform</span>:  <span class="hljs-built_in">perspective</span>(<span class="hljs-number">120px</span>) <span class="hljs-built_in">rotateY</span>(<span class="hljs-number">180deg</span>) <span class="hljs-built_in">rotateX</span>(<span class="hljs-number">180deg</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>css</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>leetcode-6027统计定界子数组的数目</title>
     <link href="/2022/10/16/leetcode-6027%E7%BB%9F%E8%AE%A1%E5%AE%9A%E7%95%8C%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%95%B0%E7%9B%AE/"/>
     <url>/2022/10/16/leetcode-6027%E7%BB%9F%E8%AE%A1%E5%AE%9A%E7%95%8C%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%95%B0%E7%9B%AE/</url>
@@ -111,25 +130,6 @@
   
   
   <entry>
-    <title>leetcode-装满杯子需要的最短时常</title>
-    <link href="/2022/07/10/leetcode-%E8%A3%85%E6%BB%A1%E6%9D%AF%E5%AD%90%E9%9C%80%E8%A6%81%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E5%B8%B8/"/>
-    <url>/2022/07/10/leetcode-%E8%A3%85%E6%BB%A1%E6%9D%AF%E5%AD%90%E9%9C%80%E8%A6%81%E7%9A%84%E6%9C%80%E7%9F%AD%E6%97%B6%E5%B8%B8/</url>
-    
-    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">fillCups</span><span class="hljs-params">(<span class="hljs-type">int</span>[] amount)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        Arrays.sort(amount);<br>        <span class="hljs-keyword">while</span>(amount[<span class="hljs-number">2</span>] &gt;= <span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-keyword">if</span>(amount[<span class="hljs-number">1</span>] == <span class="hljs-number">0</span>)&#123;<br>                ans = ans + amount[<span class="hljs-number">2</span>];<br>                <span class="hljs-keyword">return</span> ans;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                ans++;<br>                amount[<span class="hljs-number">1</span>] = amount[<span class="hljs-number">1</span>] - <span class="hljs-number">1</span>;<br>                amount[<span class="hljs-number">2</span>] = amount[<span class="hljs-number">2</span>] - <span class="hljs-number">1</span>;<br>                Arrays.sort(amount);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>贪心算法</category>
-      
-    </categories>
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>leetcode-11盛水最多的容器</title>
     <link href="/2022/07/03/leetcode-11%E7%9B%9B%E6%B0%B4%E6%9C%80%E5%A4%9A%E7%9A%84%E5%AE%B9%E5%99%A8/"/>
     <url>/2022/07/03/leetcode-11%E7%9B%9B%E6%B0%B4%E6%9C%80%E5%A4%9A%E7%9A%84%E5%AE%B9%E5%99%A8/</url>
@@ -147,31 +147,6 @@
     <tags>
       
       <tag>leetcode</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>scoped的作用</title>
-    <link href="/2022/06/29/scoped%E7%9A%84%E4%BD%9C%E7%94%A8/"/>
-    <url>/2022/06/29/scoped%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
-    
-    <content type="html"><![CDATA[<p>scoped可以使当前的样式只在当前组件生效避免对于子组件影响而造成而赞成样式的混乱。<br>但是，scoped对于根节点并不起作用，这样是为了更好的实现布局的效果。</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>问题归档</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>vue</tag>
       
     </tags>
     
@@ -230,111 +205,11 @@
   
   
   <entry>
-    <title>组件传值</title>
-    <link href="/2022/06/20/%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/"/>
-    <url>/2022/06/20/%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/</url>
-    
-    <content type="html"><![CDATA[<p>(1)父组件向子组件传值props，此时子组件不可以修改父组件的传值<br>(2)子组件向父组件传值当props使用.sync修饰时使用this.$emit(‘update:XXXX’)传值<br>(3)使用v-model<br>(4)使用顶层变量<br>(5)公用信息使用vux例如用户信息token和权限信息<br>(6)父组件向子组件或孙组件传值使用provide&#x2F;inject不允许修改值</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>问题归档</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>vue</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>如何在自定义组件中使用v-model</title>
-    <link href="/2022/06/20/%E5%A6%82%E4%BD%95%E5%9C%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E4%B8%AD%E4%BD%BF%E7%94%A8v-model/"/>
-    <url>/2022/06/20/%E5%A6%82%E4%BD%95%E5%9C%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E4%B8%AD%E4%BD%BF%E7%94%A8v-model/</url>
-    
-    <content type="html"><![CDATA[<h1 id="概述：v-model"><a href="#概述：v-model" class="headerlink" title="概述：v-model:"></a>概述：v-model:</h1><pre><code class="hljs">在&lt;input v-model=&quot;value&quot; /&gt; 等标签中经常使用v-model来实现数据的绑定。其实我们将上一个标签展开后如下：&lt;input v-bind:value = &#39;value&#39; @input=&quot;(event) = value = event.target.value&quot;&gt;。至此我们将不难发现在自定义组件中 如&lt;my-conpoment v-mode = &#39;value&#39;&gt; 其实如下: 1. 在子组件中定义 props的value属性接受父组件传值。2. 使用 this.$emit(&#39;input&#39;, value) 触发即可实现传值。</code></pre>]]></content>
-    
-    
-    <categories>
-      
-      <category>问题归档</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>vue</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>JS单线程执行机制和异步(未完成)</title>
-    <link href="/2022/06/18/JS%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6%E5%92%8C%E5%BC%82%E6%AD%A5/"/>
-    <url>/2022/06/18/JS%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6%E5%92%8C%E5%BC%82%E6%AD%A5/</url>
-    
-    <content type="html"><![CDATA[<h1 id="JS引擎"><a href="#JS引擎" class="headerlink" title="JS引擎:"></a>JS引擎:</h1><p>因为,JS引擎的执行机制为单线程当遇到例如接口请求，需要返回数据的异步操作时并不会阻塞等待数据的返回，而会去执行其它代码因为这样会造成资源浪费。因此，了解执行步骤是前端程序员必须掌握的知识。</p><h1 id="任务队列："><a href="#任务队列：" class="headerlink" title="任务队列："></a>任务队列：</h1><p>（1）任务队列<br>首先我们需要明白以下几件事情：</p><p>JS分为同步任务和异步任务<br>同步任务都在主线程上执行，形成一个执行栈<br>主线程之外，事件触发线程管理着一个任务队列，只要异步任务有了运行结果，就在任务队列之中放置一个事件。<br>一旦执行栈中的所有同步任务执行完毕（此时JS引擎空闲），系统就会读取任务队列，将可运行的异步任务添加到可执行栈中，开始执行。<br>根据规范，事件循环是通过任务队列的机制来进行协调的。一个 Event Loop 中，可以有一个或者多个任务队列(task queue)，一个任务队列便是一系列有序任务(task)的集合；每个任务都有一个任务源(task source)，源自同一个任务源的 task 必须放到同一个任务队列，从不同源来的则被添加到不同队列。 setTimeout&#x2F;Promise 等API便是任务源，而进入任务队列的是他们指定的具体执行任务</p><p>宏任务<br>(macro)task（又称之为宏任务），可以理解是每次执行栈执行的代码就是一个宏任务（包括每次从事件队列中获取一个事件回调并放到执行栈中执行）。</p><p>浏览器为了能够使得JS内部(macro)task与DOM任务能够有序的执行，会在一个(macro)task执行结束后，在下一个(macro)task 执行开始前，对页面进行重新渲染，流程如下：</p><p>(macro)task-&gt;渲染-&gt;(macro)task-&gt;…<br>(macro)task主要包含：script(整体代码)、setTimeout、setInterval、I&#x2F;O、UI交互事件、postMessage、MessageChannel、setImmediate(Node.js 环境)</p><p>微任务<br>microtask（又称为微任务），可以理解是在当前 task 执行结束后立即执行的任务。也就是说，在当前task任务后，下一个task之前，在渲染之前。</p><p>所以它的响应速度相比setTimeout（setTimeout是task）会更快，因为无需等渲染。也就是说，在某一个macrotask执行完后，就会将在它执行期间产生的所有microtask都执行完毕（在渲染前）。</p><p>microtask主要包含：Promise.then、MutaionObserver、process.nextTick(Node.js 环境)</p><h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><p>是异步编程的一种解决方案。</p><p>从语法上说，Promise 是一个对象，从它可以获取异步操作的消息。</p><p>Promise 状态<br>状态的特点<br>Promise 异步操作有三种状态：pending（进行中）、fulfilled（已成功）和 rejected（已失败）。除了异步操作的结果，任何其他操作都无法改变这个状态。</p><p>Promise 对象只有：从 pending 变为 fulfilled 和从 pending 变为 rejected 的状态改变。只要处于 fulfilled 和 rejected ，状态就不会再变了即 resolved（已定型</p><h1 id="Promise的典型使用之-this-nextTick-的执行机制："><a href="#Promise的典型使用之-this-nextTick-的执行机制：" class="headerlink" title="Promise的典型使用之 this.$nextTick() 的执行机制："></a>Promise的典型使用之 this.$nextTick() 的执行机制：</h1>]]></content>
-    
-    
-    <categories>
-      
-      <category>问题归档</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>vue</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>computed与闭包</title>
     <link href="/2022/06/18/computed%E4%B8%8E%E9%97%AD%E5%8C%85/"/>
     <url>/2022/06/18/computed%E4%B8%8E%E9%97%AD%E5%8C%85/</url>
     
     <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述:"></a>概述:</h1><p> 计算属性具有缓存的特点, 特别是当我们一个值的变换因对各值而引起时此时计算属性相对有用。但是，计算属性不能接收参数此时该如何解决哪。</p><h2 id="闭包："><a href="#闭包：" class="headerlink" title="闭包："></a>闭包：</h2><p> 因为计算属性本身不接受参数， 为了可以传参且可以对当前的计算属性可以继续调用,自然而然想到使用闭包返回一个函数的方法。<br> 具体代码举例如下:<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javaScript"> <span class="hljs-attr">computedOne</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">function</span> (<span class="hljs-params">x,y</span>) &#123;<br>          <span class="hljs-keyword">return</span> x+y<br>        &#125;<br>&#125;,<br></code></pre></td></tr></table></figure></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>问题归档</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>vue</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Vue中key的作用</title>
-    <link href="/2022/06/18/%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3key%E7%9A%84%E4%BD%9C%E7%94%A8/"/>
-    <url>/2022/06/18/%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3key%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
-    
-    <content type="html"><![CDATA[<h1 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h1><p>key值的主要作用是对比虚拟节点提高查找节点的速度。</p><h2 id="虚拟节点的更新："><a href="#虚拟节点的更新：" class="headerlink" title="虚拟节点的更新："></a>虚拟节点的更新：</h2><p>vue和传统的命令式操作dom节点相比, 引入了虚拟Dom的概念在需要更新时并非暴力的移除当前节点而是对于节点进行对比之后判断执行何种操作。<br>虚拟Dom更新主要分为以下几种方式(oldNodes: 更新前的节点列表, newNodes: 当前更新的节点列表)：<br> (1) 新增节点(newNodes列表和oldNodes列表对比未找到的节点)<br> (2) 删除节点(oldNodes中存在但newNodes中不存在)<br> (3) 更新节点(oldNodes和newNodes中存在但是不相同)更新操作也包括移动节点位置。<br> 注：虚拟节点可以理解对象类型的数据具体的diff算法不在此讨论</p><h2 id="key节点的具体作用"><a href="#key节点的具体作用" class="headerlink" title="key节点的具体作用:"></a>key节点的具体作用:</h2><p>  (1) key值不同：<br>    对于key值不同时会重新生成节点进行页面渲染<br>  (2) 对于key值相同：<br>    key值相同时可以加快节点查找速度，对于key值相同的节点会执行更新操作(重要：对比后完全不同的节点会重新生成节点， 对于比后类型相同的节点执行更新操作)</p><h2 id="实际使用中的注意点："><a href="#实际使用中的注意点：" class="headerlink" title="实际使用中的注意点："></a>实际使用中的注意点：</h2><p>  (1) 对于复用的组件必须使用key值否则会有显示问题<br>  (2) 不只在循环中使用key, v-if 和v-else中也应当使用key值<br>  (3) 在具有增删的操作中不应使用循环下表作为key会造成显示问题</p>]]></content>
     
     
     <categories>
