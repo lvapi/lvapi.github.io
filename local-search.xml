@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>leetcode-1662检查两个字符串数组是否相等</title>
+    <link href="/2022/11/02/leetcode-1662%E6%A3%80%E6%9F%A5%E4%B8%A4%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%95%B0%E7%BB%84%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89/"/>
+    <url>/2022/11/02/leetcode-1662%E6%A3%80%E6%9F%A5%E4%B8%A4%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%95%B0%E7%BB%84%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89/</url>
+    
+    <content type="html"><![CDATA[<h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><p>给你两个字符串数组 word1 和 word2 。如果两个数组表示的字符串相同，返回 true ；否则，返回 false 。</p><p>数组表示的字符串 是由数组中的所有元素 按顺序 连接形成的字符串。</p><p> </p><p>示例 1：</p><p>输入：word1 &#x3D; [“ab”, “c”], word2 &#x3D; [“a”, “bc”]<br>输出：true<br>解释：<br>word1 表示的字符串为 “ab” + “c” -&gt; “abc”<br>word2 表示的字符串为 “a” + “bc” -&gt; “abc”<br>两个字符串相同，返回 true<br>示例 2：</p><p>输入：word1 &#x3D; [“a”, “cb”], word2 &#x3D; [“ab”, “c”]<br>输出：false<br>示例 3：</p><p>输入：word1  &#x3D; [“abc”, “d”, “defg”], word2 &#x3D; [“abcddefg”]<br>输出：true </p><p>提示：</p><p>1 &lt;&#x3D; word1.length, word2.length &lt;&#x3D; 103<br>1 &lt;&#x3D; word1[i].length, word2[i].length &lt;&#x3D; 103<br>1 &lt;&#x3D; sum(word1[i].length), sum(word2[i].length) &lt;&#x3D; 103<br>word1[i] 和 word2[i] 由小写字母组成</p><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode.cn/problems/check-if-two-string-arrays-are-equivalent">https://leetcode.cn/problems/check-if-two-string-arrays-are-equivalent</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">arrayStringsAreEqual</span><span class="hljs-params">(String[] word1, String[] word2)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">p1</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, p2 = <span class="hljs-number">0</span>, i = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (p1 &lt; word1.length &amp;&amp; p2 &lt; word2.length) &#123;<br>            <span class="hljs-keyword">if</span> (word1[p1].charAt(i) != word2[p2].charAt(j)) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>            &#125;<br>            i++;<br>            <span class="hljs-keyword">if</span> (i == word1[p1].length()) &#123;<br>                p1++;<br>                i = <span class="hljs-number">0</span>;<br>            &#125;<br>            j++;<br>            <span class="hljs-keyword">if</span> (j == word2[p2].length()) &#123;<br>                p2++;<br>                j = <span class="hljs-number">0</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-type">return</span> <span class="hljs-variable">p1</span> <span class="hljs-operator">=</span>= word1.length &amp;&amp; p2 == word2.length;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>双指针</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>leetcode-481神奇字符串</title>
     <link href="/2022/10/31/leetcode-481%E7%A5%9E%E5%A5%87%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     <url>/2022/10/31/leetcode-481%E7%A5%9E%E5%A5%87%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
