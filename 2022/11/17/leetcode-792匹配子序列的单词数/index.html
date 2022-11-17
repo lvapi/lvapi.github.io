@@ -16,22 +16,22 @@
   <meta name="author" content="lvapi">
   <meta name="keywords" content="">
   
-    <meta name="description" content="题目： 卡车上的最大单元数请你将一些箱子装在 一辆卡车 上。给你一个二维数组 boxTypes ，其中 boxTypes[i] &#x3D; [numberOfBoxesi, numberOfUnitsPerBoxi] ：  numberOfBoxesi 是类型 i 的箱子的数量。numberOfUnitsPerBoxi 是类型 i 每个箱子可以装载的单元数量。整数 truckSize 表示卡车上">
+    <meta name="description" content="题目：给定字符串 s 和字符串数组 words, 返回  words[i] 中是s的子序列的单词个数 。字符串的 子序列 是从原始字符串中生成的新字符串，可以从中删去一些字符(可以是none)，而不改变其余字符的相对顺序。 例如， “ace” 是 “abcde” 的子序列。   示例 1: 输入: s &#x3D; “abcde”, words &#x3D; [“a”,”bb”,”acd”,”ac">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode-1710卡车上的最大单元数">
-<meta property="og:url" content="https://lvapi.github.io/2022/11/16/leetcode-1710%E5%8D%A1%E8%BD%A6%E4%B8%8A%E7%9A%84%E6%9C%80%E5%A4%A7%E5%8D%95%E5%85%83%E6%95%B0/index.html">
+<meta property="og:title" content="leetcode-792匹配子序列的单词数">
+<meta property="og:url" content="https://lvapi.github.io/2022/11/17/leetcode-792%E5%8C%B9%E9%85%8D%E5%AD%90%E5%BA%8F%E5%88%97%E7%9A%84%E5%8D%95%E8%AF%8D%E6%95%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="题目： 卡车上的最大单元数请你将一些箱子装在 一辆卡车 上。给你一个二维数组 boxTypes ，其中 boxTypes[i] &#x3D; [numberOfBoxesi, numberOfUnitsPerBoxi] ：  numberOfBoxesi 是类型 i 的箱子的数量。numberOfUnitsPerBoxi 是类型 i 每个箱子可以装载的单元数量。整数 truckSize 表示卡车上">
+<meta property="og:description" content="题目：给定字符串 s 和字符串数组 words, 返回  words[i] 中是s的子序列的单词个数 。字符串的 子序列 是从原始字符串中生成的新字符串，可以从中删去一些字符(可以是none)，而不改变其余字符的相对顺序。 例如， “ace” 是 “abcde” 的子序列。   示例 1: 输入: s &#x3D; “abcde”, words &#x3D; [“a”,”bb”,”acd”,”ac">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-16T14:00:28.000Z">
-<meta property="article:modified_time" content="2022-11-16T14:01:19.664Z">
+<meta property="article:published_time" content="2022-11-17T14:11:49.000Z">
+<meta property="article:modified_time" content="2022-11-17T14:13:44.405Z">
 <meta property="article:author" content="lvapi">
-<meta property="article:tag" content="贪心">
+<meta property="article:tag" content="折半查找">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>leetcode-1710卡车上的最大单元数 - Hexo</title>
+  <title>leetcode-792匹配子序列的单词数 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="leetcode-1710卡车上的最大单元数"></span>
+            <span id="subtitle" data-typed-text="leetcode-792匹配子序列的单词数"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-16 22:00" pubdate>
-          2022年11月16日 晚上
+        <time datetime="2022-11-17 22:11" pubdate>
+          2022年11月17日 晚上
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1k 字
+          958 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          9 分钟
+          8 分钟
         
       </span>
     
@@ -268,25 +268,23 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">leetcode-1710卡车上的最大单元数</h1>
+            <h1 style="display: none">leetcode-792匹配子序列的单词数</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><ol start="1710">
-<li>卡车上的最大单元数<br>请你将一些箱子装在 一辆卡车 上。给你一个二维数组 boxTypes ，其中 boxTypes[i] &#x3D; [numberOfBoxesi, numberOfUnitsPerBoxi] ：</li>
-</ol>
-<p>numberOfBoxesi 是类型 i 的箱子的数量。<br>numberOfUnitsPerBoxi 是类型 i 每个箱子可以装载的单元数量。<br>整数 truckSize 表示卡车上可以装载 箱子 的 最大数量 。只要箱子数量不超过 truckSize ，你就可以选择任意箱子装到卡车上。</p>
-<p>返回卡车可以装载 单元 的 最大 总数。</p>
-<p>示例 1：</p>
-<p>输入：boxTypes &#x3D; [[1,3],[2,2],[3,1]], truckSize &#x3D; 4<br>输出：8<br>解释：箱子的情况如下：</p>
-<ul>
-<li>1 个第一类的箱子，里面含 3 个单元。</li>
-<li>2 个第二类的箱子，每个里面含 2 个单元。</li>
-<li>3 个第三类的箱子，每个里面含 1 个单元。<br>可以选择第一类和第二类的所有箱子，以及第三类的一个箱子。<br>单元总数 &#x3D; (1 * 3) + (2 * 2) + (1 * 1) &#x3D; 8<br>示例 2：</li>
-</ul>
-<p>输入：boxTypes &#x3D; [[5,10],[2,5],[4,7],[3,9]], truckSize &#x3D; 10<br>输出：91</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maximumUnits</span><span class="hljs-params">(<span class="hljs-type">int</span>[][] boxTypes, <span class="hljs-type">int</span> truckSize)</span> &#123;<br>        Arrays.sort(boxTypes, <span class="hljs-keyword">new</span> <span class="hljs-title class_">Comparator</span>&lt;<span class="hljs-type">int</span>[]&gt;()&#123;<br>                <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">compare</span><span class="hljs-params">(<span class="hljs-type">int</span>[] a,<span class="hljs-type">int</span>[] b)</span>&#123;<br>                    <span class="hljs-keyword">return</span> b[<span class="hljs-number">1</span>] - a[<span class="hljs-number">1</span>];<br>                &#125;<br>            &#125;<br>        );<br>        <span class="hljs-type">int</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; boxTypes.length; i++)&#123;<br>            <span class="hljs-keyword">if</span>(truckSize &lt;= <span class="hljs-number">0</span>)&#123;<br>                <span class="hljs-keyword">return</span>  ans;<br>            &#125;<br>            <span class="hljs-keyword">if</span>(truckSize &gt;= boxTypes[i][<span class="hljs-number">0</span>])&#123;<br>                ans = ans + boxTypes[i][<span class="hljs-number">1</span>]* boxTypes[i][<span class="hljs-number">0</span>];<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                ans = ans + truckSize*boxTypes[i][<span class="hljs-number">1</span>];<br>            &#125;<br>            truckSize = truckSize - boxTypes[i][<span class="hljs-number">0</span>];<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h1 id="题目：给定字符串-s-和字符串数组-words-返回-words-i-中是s的子序列的单词个数-。"><a href="#题目：给定字符串-s-和字符串数组-words-返回-words-i-中是s的子序列的单词个数-。" class="headerlink" title="题目：给定字符串 s 和字符串数组 words, 返回  words[i] 中是s的子序列的单词个数 。"></a>题目：给定字符串 s 和字符串数组 words, 返回  words[i] 中是s的子序列的单词个数 。</h1><p>字符串的 子序列 是从原始字符串中生成的新字符串，可以从中删去一些字符(可以是none)，而不改变其余字符的相对顺序。</p>
+<p>例如， “ace” 是 “abcde” 的子序列。
+ </p>
+<p>示例 1:</p>
+<p>输入: s &#x3D; “abcde”, words &#x3D; [“a”,”bb”,”acd”,”ace”]<br>输出: 3<br>解释: 有三个是 s 的子序列的单词: “a”, “acd”, “ace”。<br>Example 2:</p>
+<p>输入: s &#x3D; “dsahjpjauf”, words &#x3D; [“ahjpjau”,”ja”,”ahbwzgqnuk”,”tnmlanowax”]<br>输出: 2
+ </p>
+<p>提示:</p>
+<p>1 &lt;&#x3D; s.length &lt;&#x3D; 5 * 104<br>1 &lt;&#x3D; words.length &lt;&#x3D; 5000<br>1 &lt;&#x3D; words[i].length &lt;&#x3D; 50<br>words[i]和 s 都只由小写字母组成。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/number-of-matching-subsequences">https://leetcode.cn/problems/number-of-matching-subsequences</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h1 id="思路：暴力搜索时间复杂度O-N2-超时"><a href="#思路：暴力搜索时间复杂度O-N2-超时" class="headerlink" title="思路：暴力搜索时间复杂度O(N2)超时"></a>思路：暴力搜索时间复杂度O(N2)超时</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">numMatchingSubseq</span><span class="hljs-params">(String s, String[] words)</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; words.length; i++)&#123;<br>            <span class="hljs-type">String</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> words[i];<br>            <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, right = <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">while</span>(left &lt; s.length() &amp;&amp; right &lt; temp.length())&#123;<br>                <span class="hljs-keyword">if</span>(s.charAt(left) == temp.charAt(right))&#123;<br>                    right++;<br>                &#125;<br>                left++;<br>            &#125;<br>            <span class="hljs-keyword">if</span>(right == temp.length())&#123;<br>                ans++;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> ans;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
                 
               </div>
             
@@ -298,7 +296,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E8%B4%AA%E5%BF%83/">#贪心</a>
+        <a href="/tags/%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE/">#折半查找</a>
       
     </div>
   
@@ -310,8 +308,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>leetcode-1710卡车上的最大单元数</div>
-      <div>https://lvapi.github.io/2022/11/16/leetcode-1710卡车上的最大单元数/</div>
+      <div>leetcode-792匹配子序列的单词数</div>
+      <div>https://lvapi.github.io/2022/11/17/leetcode-792匹配子序列的单词数/</div>
     </div>
     <div class="license-meta">
       
@@ -323,7 +321,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年11月16日</div>
+          <div>2022年11月17日</div>
         </div>
       
       
@@ -353,18 +351,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/17/leetcode-792%E5%8C%B9%E9%85%8D%E5%AD%90%E5%BA%8F%E5%88%97%E7%9A%84%E5%8D%95%E8%AF%8D%E6%95%B0/" title="leetcode-792匹配子序列的单词数">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">leetcode-792匹配子序列的单词数</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/11/07/leetcode-816%E6%A8%A1%E7%B3%8A%E5%9D%90%E6%A0%87/" title="leetcode-816模糊坐标">
-                        <span class="hidden-mobile">leetcode-816模糊坐标</span>
+                      <a href="/2022/11/16/leetcode-1710%E5%8D%A1%E8%BD%A6%E4%B8%8A%E7%9A%84%E6%9C%80%E5%A4%A7%E5%8D%95%E5%85%83%E6%95%B0/" title="leetcode-1710卡车上的最大单元数">
+                        <span class="hidden-mobile">leetcode-1710卡车上的最大单元数</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
