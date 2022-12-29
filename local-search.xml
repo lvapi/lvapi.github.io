@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>leetcode-2032至少在两个数组中出现的值</title>
+    <link href="/2022/12/29/leetcode-2032%E8%87%B3%E5%B0%91%E5%9C%A8%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E5%80%BC/"/>
+    <url>/2022/12/29/leetcode-2032%E8%87%B3%E5%B0%91%E5%9C%A8%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E5%80%BC/</url>
+    
+    <content type="html"><![CDATA[<h2 id="给你三个整数数组-nums1、nums2-和-nums3-，请你构造并返回一个-元素各不相同的-数组，且由-至少-在-两个-数组中出现的所有值组成。数组中的元素可以按-任意-顺序排列。"><a href="#给你三个整数数组-nums1、nums2-和-nums3-，请你构造并返回一个-元素各不相同的-数组，且由-至少-在-两个-数组中出现的所有值组成。数组中的元素可以按-任意-顺序排列。" class="headerlink" title="给你三个整数数组 nums1、nums2 和 nums3 ，请你构造并返回一个 元素各不相同的 数组，且由 至少 在 两个 数组中出现的所有值组成。数组中的元素可以按 任意 顺序排列。"></a>给你三个整数数组 nums1、nums2 和 nums3 ，请你构造并返回一个 元素各不相同的 数组，且由 至少 在 两个 数组中出现的所有值组成。数组中的元素可以按 任意 顺序排列。</h2><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode.cn/problems/two-out-of-three">https://leetcode.cn/problems/two-out-of-three</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> List&lt;Integer&gt; <span class="hljs-title function_">twoOutOfThree</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums1, <span class="hljs-type">int</span>[] nums2, <span class="hljs-type">int</span>[] nums3)</span> &#123;<br>        List&lt;Integer&gt; ans = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>();<br>        Map&lt;Integer, Integer&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>();<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> key : nums1)&#123;<br>            map.put(key, <span class="hljs-number">1</span>);<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> key : nums2)&#123;<br>            map.put(key, map.getOrDefault(key, <span class="hljs-number">0</span>) | <span class="hljs-number">2</span>);<br>        &#125;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> key : nums3)&#123;<br>             map.put(key, map.getOrDefault(key, <span class="hljs-number">0</span>) | <span class="hljs-number">4</span>);<br>        &#125;<br>         List&lt;Integer&gt; res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;Integer&gt;();<br>        <span class="hljs-keyword">for</span> (Map.Entry&lt;Integer, Integer&gt; entry : map.entrySet()) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> entry.getKey(), v = entry.getValue();<br>            <span class="hljs-keyword">if</span> ((v &amp; (v - <span class="hljs-number">1</span>)) != <span class="hljs-number">0</span>) &#123;<br>                res.add(k);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>位运算</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>leetcode-1971寻找图中是否存在路径</title>
     <link href="/2022/12/28/leetcode-1971%E5%AF%BB%E6%89%BE%E5%9B%BE%E4%B8%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E8%B7%AF%E5%BE%84/"/>
     <url>/2022/12/28/leetcode-1971%E5%AF%BB%E6%89%BE%E5%9B%BE%E4%B8%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E8%B7%AF%E5%BE%84/</url>
