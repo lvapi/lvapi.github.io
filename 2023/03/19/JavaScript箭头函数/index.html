@@ -16,22 +16,22 @@
   <meta name="author" content="lvapi">
   <meta name="keywords" content="">
   
-    <meta name="description" content="vue.js 提供的render函数，可以利用编程的形式实现相应的模板，在实现较复杂的功能时通常十分有用。我们以实现一个简单的表单进行举例学习。12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686">
+    <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536const user &#x3D; &amp;#x27;小明&amp;#x27;   const info &#x3D; &amp;#123;     user: &quot;TEST&quot;,     &#x2F;* this指向当前的声明对象 *&#x2F;     getUser: function () &amp;#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue.js render函数的使用实践">
-<meta property="og:url" content="https://lvapi.github.io/2023/03/17/vue-js-render%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8%E5%AE%9E%E8%B7%B5/index.html">
+<meta property="og:title" content="JavaScript箭头函数">
+<meta property="og:url" content="https://lvapi.github.io/2023/03/19/JavaScript%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="vue.js 提供的render函数，可以利用编程的形式实现相应的模板，在实现较复杂的功能时通常十分有用。我们以实现一个简单的表单进行举例学习。12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686">
+<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536const user &#x3D; &amp;#x27;小明&amp;#x27;   const info &#x3D; &amp;#123;     user: &quot;TEST&quot;,     &#x2F;* this指向当前的声明对象 *&#x2F;     getUser: function () &amp;#123;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-03-17T04:50:08.000Z">
-<meta property="article:modified_time" content="2023-03-17T04:55:07.830Z">
+<meta property="article:published_time" content="2023-03-19T10:16:08.000Z">
+<meta property="article:modified_time" content="2023-03-19T10:53:17.894Z">
 <meta property="article:author" content="lvapi">
-<meta property="article:tag" content="vue.js">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>vue.js render函数的使用实践 - Hexo</title>
+  <title>JavaScript箭头函数 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="vue.js render函数的使用实践"></span>
+            <span id="subtitle" data-typed-text="JavaScript箭头函数"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-03-17 12:50" pubdate>
-          2023年3月17日 下午
+        <time datetime="2023-03-19 18:16" pubdate>
+          2023年3月19日 晚上
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          1.5k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          12 分钟
+          13 分钟
         
       </span>
     
@@ -268,13 +268,14 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">vue.js render函数的使用实践</h1>
+            <h1 style="display: none">JavaScript箭头函数</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="vue-js-提供的render函数，可以利用编程的形式实现相应的模板，在实现较复杂的功能时通常十分有用。我们以实现一个简单的表单进行举例学习。"><a href="#vue-js-提供的render函数，可以利用编程的形式实现相应的模板，在实现较复杂的功能时通常十分有用。我们以实现一个简单的表单进行举例学习。" class="headerlink" title="vue.js 提供的render函数，可以利用编程的形式实现相应的模板，在实现较复杂的功能时通常十分有用。我们以实现一个简单的表单进行举例学习。"></a>vue.js 提供的render函数，可以利用编程的形式实现相应的模板，在实现较复杂的功能时通常十分有用。我们以实现一个简单的表单进行举例学习。</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><code class="hljs java">export <span class="hljs-keyword">default</span> &#123;<br>  props: &#123;<br>    value: &#123;<br>      type: Object,<br>      <span class="hljs-keyword">default</span>: () =&gt; &#123;<br>        <span class="hljs-keyword">return</span> &#123;&#125;<br>      &#125;<br>    &#125;,<br>    <span class="hljs-comment">/* 表单子项配置 */</span><br>    formColumns: &#123;<br>      type: Array,<br>      <span class="hljs-keyword">default</span>: () =&gt; &#123;<br>        <span class="hljs-keyword">return</span> []<br>      &#125;<br>    &#125;,<br>    <span class="hljs-comment">/* 表单配置 */</span><br>    formPropert: &#123;<br>      type: Object,<br>      <span class="hljs-keyword">default</span>: () =&gt; &#123;<br>        <span class="hljs-keyword">return</span> &#123;&#125;<br>      &#125;<br>    &#125;,<br>    rules: &#123;<br>      type: Array,<br>      <span class="hljs-keyword">default</span>: () =&gt; &#123;<br>        <span class="hljs-keyword">return</span> []<br>      &#125;<br>    &#125;<br>  &#125;,<br>  data() &#123;<br>    <span class="hljs-keyword">return</span> &#123;&#125;<br>  &#125;,<br>  <span class="hljs-comment">/*实现数据的双向绑定*/</span><br>  computed: &#123;<br>    model: &#123;<br>      get() &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.value<br>      &#125;,<br>      set(val) &#123;<br>        <span class="hljs-built_in">this</span>.$emit(<span class="hljs-string">&#x27;input&#x27;</span>, val)<br>      &#125;<br>    &#125;<br>  &#125;,<br>  render(h) &#123;<br>    <span class="hljs-type">const</span> <span class="hljs-variable">self</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">this</span><br>    <span class="hljs-keyword">return</span> h(<span class="hljs-string">&#x27;el-form&#x27;</span>, &#123;<br>      props: &#123;<br>        rules: <span class="hljs-built_in">this</span>.rules,<br>        ...<span class="hljs-built_in">this</span>.formPropert<br>      &#125;<br>    &#125;, [<br>      h(<span class="hljs-string">&#x27;el-row&#x27;</span>, &#123;<br>          props: &#123;<br>            gutter: <span class="hljs-number">24</span><br>          &#125;<br>        &#125;,<br>        <span class="hljs-built_in">this</span>.formColumns.map(e =&gt; &#123;<br>          <span class="hljs-keyword">return</span> h(<span class="hljs-string">&#x27;el-col&#x27;</span>, &#123;<br>              props: &#123;<br>                span: <span class="hljs-number">6</span><br>              &#125;<br>            &#125;,<br>            [<br>              h(<span class="hljs-string">&#x27;el-form-item&#x27;</span>, &#123;<br>                props: &#123;<br>                  ...e.keysform<br>                &#125;<br>              &#125;, [h(e.type, &#123;<br>                props: &#123;<br>                  value: self.model[e.key]<br>                &#125;,<br>                on: &#123;<br>                  input: function (el) &#123;<br>                    self.model[e.key] = el<br>                  &#125;,<br>                  ...e.opertaions<br>                &#125;<br>              &#125;)])<br>            ]<br>          )<br>        &#125;)<br>      ),<br>      h(<span class="hljs-string">&#x27;div&#x27;</span>, self.$slots.<span class="hljs-keyword">default</span>)<br>    ])<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
+                <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">const</span> <span class="hljs-variable">user</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;小明&#x27;</span><br>   <span class="hljs-type">const</span> <span class="hljs-variable">info</span> <span class="hljs-operator">=</span> &#123;<br>     user: <span class="hljs-string">&quot;TEST&quot;</span>,<br>     <span class="hljs-comment">/* this指向当前的声明对象 */</span><br>     getUser: function () &#123;<br>       console.log(<span class="hljs-string">&quot;info user&quot;</span>, <span class="hljs-built_in">this</span>.user);<br>     &#125;,<br>     <span class="hljs-comment">/* 事件函数的指针指向执行环境的作用域 */</span><br>     addListener: function () &#123;<br>       <span class="hljs-type">const</span> <span class="hljs-variable">dom</span> <span class="hljs-operator">=</span> document.getElementsByClassName(<span class="hljs-string">&quot;btn&quot;</span>)[<span class="hljs-number">0</span>];<br>       dom.addEventListener(<br>         <span class="hljs-string">&quot;click&quot;</span>,<br>         function () &#123;<br>           console.log(<span class="hljs-string">&quot;info user - addListener&quot;</span>, <span class="hljs-built_in">this</span>.user);<br>         &#125;,<br>         <span class="hljs-literal">false</span><br>       );<br>     &#125;,<br>     <span class="hljs-comment">/* 箭头函数的this指针由非箭头函数的外层定义域决定 */</span><br>     arrow: &#123;<br>       getUserArrow: () =&gt; &#123;<br>         console.log(<span class="hljs-string">&quot;info user - arrow&quot;</span>, <span class="hljs-built_in">this</span>.user);<br>       &#125;,<br>     &#125;,<br>     getUserArrow: function () &#123;<br>       console.log(<span class="hljs-string">&quot;info user - arrow - function&quot;</span>, <span class="hljs-built_in">this</span>.user);<br>     &#125;,<br>   &#125;;<br>   <span class="hljs-comment">/*输出 TEST*/</span><br>   info.getUser();<br>   <span class="hljs-comment">/*输出 Undefined*/</span><br>   info.addListener();<br>   <span class="hljs-comment">/*输出 小明*/</span><br>   info.arrow.getUserArrow();<br>   <span class="hljs-comment">/*输出 TEST*/</span><br>   info.getUserArrow();<br></code></pre></td></tr></table></figure>
+<h3 id="通过上述的对比我们可以获得一下结论"><a href="#通过上述的对比我们可以获得一下结论" class="headerlink" title="通过上述的对比我们可以获得一下结论"></a>通过上述的对比我们可以获得一下结论</h3><h3 id="1-普通函数的this绑定和执行以及声明环境相关需具体分析"><a href="#1-普通函数的this绑定和执行以及声明环境相关需具体分析" class="headerlink" title="(1) 普通函数的this绑定和执行以及声明环境相关需具体分析"></a>(1) 普通函数的this绑定和执行以及声明环境相关需具体分析</h3><h3 id="2-如果箭头函数被非箭头函数包含，this绑定最近的非箭头函数的this-否则this指向全局对象"><a href="#2-如果箭头函数被非箭头函数包含，this绑定最近的非箭头函数的this-否则this指向全局对象" class="headerlink" title="(2) 如果箭头函数被非箭头函数包含，this绑定最近的非箭头函数的this, 否则this指向全局对象"></a>(2) 如果箭头函数被非箭头函数包含，this绑定最近的非箭头函数的this, 否则this指向全局对象</h3><h2 id="通过call-apply-bind-手动操作改变函数执行的this指向"><a href="#通过call-apply-bind-手动操作改变函数执行的this指向" class="headerlink" title="通过call(), apply(), bind()手动操作改变函数执行的this指向"></a>通过call(), apply(), bind()手动操作改变函数执行的this指向</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">const</span> <span class="hljs-variable">self</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">this</span>;<br><span class="hljs-type">const</span> <span class="hljs-variable">info</span> <span class="hljs-operator">=</span> &#123;<br>  user: <span class="hljs-string">&quot;TEST&quot;</span>,<br>  getUser: function () &#123;<br>    console.log(<span class="hljs-string">&quot;info user&quot;</span>, <span class="hljs-built_in">this</span>.user);<br>  &#125;,<br>  getUserGlobal: function () &#123;<br>    console.log(<span class="hljs-string">&quot;info user - global&quot;</span>, <span class="hljs-built_in">this</span>.user);<br>  &#125;.bind(self),<br><br>  getUserArrow: function () &#123;<br>    <span class="hljs-keyword">return</span> (() =&gt; &#123;<br>      console.log(<span class="hljs-string">&quot;info user - arrow&quot;</span>, <span class="hljs-built_in">this</span>.user);<br>    &#125;).bind(self);<br>  &#125;,<br>&#125;;<br><span class="hljs-comment">/*TEST*/</span><br>info.getUser();<br><span class="hljs-comment">/*小明*/</span><br>info.getUserGlobal();<br><span class="hljs-comment">/*TEST*/</span><br>info.getUserArrow()();<br></code></pre></td></tr></table></figure>
+<h3 id="通过以上实践发现在执行时-箭头函数的this指向不能改变但是-普通函数的this指向时可以改变的"><a href="#通过以上实践发现在执行时-箭头函数的this指向不能改变但是-普通函数的this指向时可以改变的" class="headerlink" title="通过以上实践发现在执行时 箭头函数的this指向不能改变但是 普通函数的this指向时可以改变的"></a>通过以上实践发现在执行时 箭头函数的this指向不能改变但是 普通函数的this指向时可以改变的</h3>
                 
               </div>
             
@@ -286,7 +287,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/vue-js/">#vue.js</a>
+        <a href="/tags/JavaScript/">#JavaScript</a>
       
     </div>
   
@@ -298,8 +299,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>vue.js render函数的使用实践</div>
-      <div>https://lvapi.github.io/2023/03/17/vue-js-render函数的使用实践/</div>
+      <div>JavaScript箭头函数</div>
+      <div>https://lvapi.github.io/2023/03/19/JavaScript箭头函数/</div>
     </div>
     <div class="license-meta">
       
@@ -311,7 +312,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年3月17日</div>
+          <div>2023年3月19日</div>
         </div>
       
       
@@ -341,18 +342,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/03/19/JavaScript%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" title="JavaScript箭头函数">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JavaScript箭头函数</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/12/29/leetcode-2032%E8%87%B3%E5%B0%91%E5%9C%A8%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E5%80%BC/" title="leetcode-2032至少在两个数组中出现的值">
-                        <span class="hidden-mobile">leetcode-2032至少在两个数组中出现的值</span>
+                      <a href="/2023/03/17/vue-js-render%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8%E5%AE%9E%E8%B7%B5/" title="vue.js render函数的使用实践">
+                        <span class="hidden-mobile">vue.js render函数的使用实践</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
