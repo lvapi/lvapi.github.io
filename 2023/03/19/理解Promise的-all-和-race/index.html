@@ -16,22 +16,22 @@
   <meta name="author" content="lvapi">
   <meta name="keywords" content="">
   
-    <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536const user &#x3D; &amp;#x27;小明&amp;#x27;   const info &#x3D; &amp;#123;     user: &quot;TEST&quot;,     &#x2F;* this指向当前的声明对象 *&#x2F;     getUser: function () &amp;#123;">
+    <meta name="description" content="这里假设对于 JavaScript 引擎的单线程执行机制和 Promise()的基础知识已经掌握，清楚 JavaScript 的任务编排针对已往的错误理解进行纠正。1234567891011121314151617181920212223242526272829303132let p1 &#x3D; new Promise(function(reslove, reject)&amp;#123;    console">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript箭头函数">
-<meta property="og:url" content="https://lvapi.github.io/2023/03/19/JavaScript%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:title" content="理解Promise的.all()和.race()">
+<meta property="og:url" content="https://lvapi.github.io/2023/03/19/%E7%90%86%E8%A7%A3Promise%E7%9A%84-all-%E5%92%8C-race/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536const user &#x3D; &amp;#x27;小明&amp;#x27;   const info &#x3D; &amp;#123;     user: &quot;TEST&quot;,     &#x2F;* this指向当前的声明对象 *&#x2F;     getUser: function () &amp;#123;">
+<meta property="og:description" content="这里假设对于 JavaScript 引擎的单线程执行机制和 Promise()的基础知识已经掌握，清楚 JavaScript 的任务编排针对已往的错误理解进行纠正。1234567891011121314151617181920212223242526272829303132let p1 &#x3D; new Promise(function(reslove, reject)&amp;#123;    console">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-03-19T10:16:08.000Z">
-<meta property="article:modified_time" content="2023-03-19T10:53:17.894Z">
+<meta property="article:published_time" content="2023-03-19T14:24:23.000Z">
+<meta property="article:modified_time" content="2023-03-19T14:41:57.752Z">
 <meta property="article:author" content="lvapi">
-<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="ES6">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>JavaScript箭头函数 - Hexo</title>
+  <title>理解Promise的.all()和.race() - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="JavaScript箭头函数"></span>
+            <span id="subtitle" data-typed-text="理解Promise的.all()和.race()"></span>
           
         </div>
 
@@ -207,7 +207,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-03-19 18:16" pubdate>
+        <time datetime="2023-03-19 22:24" pubdate>
           2023年3月19日 晚上
         </time>
       </span>
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          917 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          13 分钟
+          8 分钟
         
       </span>
     
@@ -268,14 +268,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">JavaScript箭头函数</h1>
+            <h1 style="display: none">理解Promise的.all()和.race()</h1>
             
             
               <div class="markdown-body">
                 
-                <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">const</span> <span class="hljs-variable">user</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;小明&#x27;</span><br>   <span class="hljs-type">const</span> <span class="hljs-variable">info</span> <span class="hljs-operator">=</span> &#123;<br>     user: <span class="hljs-string">&quot;TEST&quot;</span>,<br>     <span class="hljs-comment">/* this指向当前的声明对象 */</span><br>     getUser: function () &#123;<br>       console.log(<span class="hljs-string">&quot;info user&quot;</span>, <span class="hljs-built_in">this</span>.user);<br>     &#125;,<br>     <span class="hljs-comment">/* 事件函数的指针指向执行环境的作用域 */</span><br>     addListener: function () &#123;<br>       <span class="hljs-type">const</span> <span class="hljs-variable">dom</span> <span class="hljs-operator">=</span> document.getElementsByClassName(<span class="hljs-string">&quot;btn&quot;</span>)[<span class="hljs-number">0</span>];<br>       dom.addEventListener(<br>         <span class="hljs-string">&quot;click&quot;</span>,<br>         function () &#123;<br>           console.log(<span class="hljs-string">&quot;info user - addListener&quot;</span>, <span class="hljs-built_in">this</span>.user);<br>         &#125;,<br>         <span class="hljs-literal">false</span><br>       );<br>     &#125;,<br>     <span class="hljs-comment">/* 箭头函数的this指针由非箭头函数的外层定义域决定 */</span><br>     arrow: &#123;<br>       getUserArrow: () =&gt; &#123;<br>         console.log(<span class="hljs-string">&quot;info user - arrow&quot;</span>, <span class="hljs-built_in">this</span>.user);<br>       &#125;,<br>     &#125;,<br>     getUserArrow: function () &#123;<br>       console.log(<span class="hljs-string">&quot;info user - arrow - function&quot;</span>, <span class="hljs-built_in">this</span>.user);<br>     &#125;,<br>   &#125;;<br>   <span class="hljs-comment">/*输出 TEST*/</span><br>   info.getUser();<br>   <span class="hljs-comment">/*输出 Undefined*/</span><br>   info.addListener();<br>   <span class="hljs-comment">/*输出 小明*/</span><br>   info.arrow.getUserArrow();<br>   <span class="hljs-comment">/*输出 TEST*/</span><br>   info.getUserArrow();<br></code></pre></td></tr></table></figure>
-<h3 id="通过上述的对比我们可以获得一下结论"><a href="#通过上述的对比我们可以获得一下结论" class="headerlink" title="通过上述的对比我们可以获得一下结论"></a>通过上述的对比我们可以获得一下结论</h3><h3 id="1-普通函数的this绑定和执行以及声明环境相关需具体分析"><a href="#1-普通函数的this绑定和执行以及声明环境相关需具体分析" class="headerlink" title="(1) 普通函数的this绑定和执行以及声明环境相关需具体分析"></a>(1) 普通函数的this绑定和执行以及声明环境相关需具体分析</h3><h3 id="2-如果箭头函数被非箭头函数包含，this绑定最近的非箭头函数的this-否则this指向全局对象"><a href="#2-如果箭头函数被非箭头函数包含，this绑定最近的非箭头函数的this-否则this指向全局对象" class="headerlink" title="(2) 如果箭头函数被非箭头函数包含，this绑定最近的非箭头函数的this, 否则this指向全局对象"></a>(2) 如果箭头函数被非箭头函数包含，this绑定最近的非箭头函数的this, 否则this指向全局对象</h3><h2 id="通过call-apply-bind-手动操作改变函数执行的this指向"><a href="#通过call-apply-bind-手动操作改变函数执行的this指向" class="headerlink" title="通过call(), apply(), bind()手动操作改变函数执行的this指向"></a>通过call(), apply(), bind()手动操作改变函数执行的this指向</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">const</span> <span class="hljs-variable">self</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">this</span>;<br><span class="hljs-type">const</span> <span class="hljs-variable">info</span> <span class="hljs-operator">=</span> &#123;<br>  user: <span class="hljs-string">&quot;TEST&quot;</span>,<br>  getUser: function () &#123;<br>    console.log(<span class="hljs-string">&quot;info user&quot;</span>, <span class="hljs-built_in">this</span>.user);<br>  &#125;,<br>  getUserGlobal: function () &#123;<br>    console.log(<span class="hljs-string">&quot;info user - global&quot;</span>, <span class="hljs-built_in">this</span>.user);<br>  &#125;.bind(self),<br><br>  getUserArrow: function () &#123;<br>    <span class="hljs-keyword">return</span> (() =&gt; &#123;<br>      console.log(<span class="hljs-string">&quot;info user - arrow&quot;</span>, <span class="hljs-built_in">this</span>.user);<br>    &#125;).bind(self);<br>  &#125;,<br>&#125;;<br><span class="hljs-comment">/*TEST*/</span><br>info.getUser();<br><span class="hljs-comment">/*小明*/</span><br>info.getUserGlobal();<br><span class="hljs-comment">/*TEST*/</span><br>info.getUserArrow()();<br></code></pre></td></tr></table></figure>
-<h3 id="通过以上实践发现在执行时-箭头函数的this指向不能改变但是-普通函数的this指向时可以改变的"><a href="#通过以上实践发现在执行时-箭头函数的this指向不能改变但是-普通函数的this指向时可以改变的" class="headerlink" title="通过以上实践发现在执行时 箭头函数的this指向不能改变但是 普通函数的this指向时可以改变的"></a>通过以上实践发现在执行时 箭头函数的this指向不能改变但是 普通函数的this指向时可以改变的</h3>
+                <h3 id="这里假设对于-JavaScript-引擎的单线程执行机制和-Promise-的基础知识已经掌握，清楚-JavaScript-的任务编排针对已往的错误理解进行纠正。"><a href="#这里假设对于-JavaScript-引擎的单线程执行机制和-Promise-的基础知识已经掌握，清楚-JavaScript-的任务编排针对已往的错误理解进行纠正。" class="headerlink" title="这里假设对于 JavaScript 引擎的单线程执行机制和 Promise()的基础知识已经掌握，清楚 JavaScript 的任务编排针对已往的错误理解进行纠正。"></a>这里假设对于 JavaScript 引擎的单线程执行机制和 Promise()的基础知识已经掌握，清楚 JavaScript 的任务编排针对已往的错误理解进行纠正。</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-type">let</span> <span class="hljs-variable">p1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(function(reslove, reject)&#123;<br>    console.log(p1)<br>    reslove(<span class="hljs-number">1</span>)<br>&#125;)<br><span class="hljs-type">let</span> <span class="hljs-variable">p2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(function(reslove, reject)&#123;<br>    console.log(p2)<br>    reject(<span class="hljs-number">2</span>)<br>&#125;)<br><span class="hljs-type">let</span> <span class="hljs-variable">p3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(function(reslove, reject)&#123;<br>    console.log(p3)<br>    reslove(<span class="hljs-number">3</span>)<br>&#125;)<br><span class="hljs-type">let</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> Promise()<br>p.all([p1, p2, p3]).then(res=&gt;&#123;<br>    console.lg(res)<br>&#125;).<span class="hljs-keyword">catch</span>(error=&gt;&#123;<br>   console.lg(error)<br>&#125;)<br>p.race([p1, p2, p3]).then(res=&gt;&#123;<br>    console.lg(res)<br>&#125;).<span class="hljs-keyword">catch</span>(error=&gt;&#123;<br>   console.lg(error)<br>&#125;)<br><br><span class="hljs-keyword">try</span> &#123;<br>    <span class="hljs-type">let</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> await <span class="hljs-title function_">p1</span><span class="hljs-params">()</span><br>    <span class="hljs-type">let</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> await <span class="hljs-title function_">p2</span><span class="hljs-params">(a)</span><br>    <span class="hljs-type">let</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> await <span class="hljs-title function_">p3</span><span class="hljs-params">(b)</span><br>    <span class="hljs-built_in">this</span>.doSomeThingSuccess()<br>  &#125; <span class="hljs-keyword">catch</span> (error) &#123;<br>    <span class="hljs-built_in">this</span>.doSomeThingError()  <br>  &#125;<br></code></pre></td></tr></table></figure>
+<h4 id="因为-all-函数通常用于执行事务性操作，只有所有事物执行成功时才会将状态修改为成功状态。起初以为所有操作是串联执行，当遇到执行失败时直接退出执行，当实践后发现所有的操作其实是并联执行的，因为每个操作之间并无因果关系同时执行在执行完成后在判断每个-Promise-的状态，-race-的操作执行同为并联执行。-当遇到具有依赖关系是选择使用-await-并进行-try-catch-进行异常捕获"><a href="#因为-all-函数通常用于执行事务性操作，只有所有事物执行成功时才会将状态修改为成功状态。起初以为所有操作是串联执行，当遇到执行失败时直接退出执行，当实践后发现所有的操作其实是并联执行的，因为每个操作之间并无因果关系同时执行在执行完成后在判断每个-Promise-的状态，-race-的操作执行同为并联执行。-当遇到具有依赖关系是选择使用-await-并进行-try-catch-进行异常捕获" class="headerlink" title="因为.all() 函数通常用于执行事务性操作，只有所有事物执行成功时才会将状态修改为成功状态。起初以为所有操作是串联执行，当遇到执行失败时直接退出执行，当实践后发现所有的操作其实是并联执行的，因为每个操作之间并无因果关系同时执行在执行完成后在判断每个 Promise 的状态，.race() 的操作执行同为并联执行。 当遇到具有依赖关系是选择使用 await 并进行 try-catch 进行异常捕获"></a>因为.all() 函数通常用于执行事务性操作，只有所有事物执行成功时才会将状态修改为成功状态。起初以为所有操作是串联执行，当遇到执行失败时直接退出执行，当实践后发现所有的操作其实是并联执行的，因为每个操作之间并无因果关系同时执行在执行完成后在判断每个 Promise 的状态，.race() 的操作执行同为并联执行。 当遇到具有依赖关系是选择使用 await 并进行 try-catch 进行异常捕获</h4>
                 
               </div>
             
@@ -287,7 +286,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/JavaScript/">#JavaScript</a>
+        <a href="/tags/ES6/">#ES6</a>
       
     </div>
   
@@ -299,8 +298,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>JavaScript箭头函数</div>
-      <div>https://lvapi.github.io/2023/03/19/JavaScript箭头函数/</div>
+      <div>理解Promise的.all()和.race()</div>
+      <div>https://lvapi.github.io/2023/03/19/理解Promise的-all-和-race/</div>
     </div>
     <div class="license-meta">
       
@@ -342,18 +341,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/03/19/%E7%90%86%E8%A7%A3Promise%E7%9A%84-all-%E5%92%8C-race/" title="理解Promise的.all()和.race()">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">理解Promise的.all()和.race()</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/03/17/vue-js-render%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8%E5%AE%9E%E8%B7%B5/" title="vue.js render函数的使用实践">
-                        <span class="hidden-mobile">vue.js render函数的使用实践</span>
+                      <a href="/2023/03/19/JavaScript%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" title="JavaScript箭头函数">
+                        <span class="hidden-mobile">JavaScript箭头函数</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
