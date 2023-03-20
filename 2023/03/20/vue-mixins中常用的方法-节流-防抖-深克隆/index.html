@@ -16,22 +16,22 @@
   <meta name="author" content="lvapi">
   <meta name="keywords" content="">
   
-    <meta name="description" content="这里假设对于读者 JavaScript 引擎的单线程执行机制和 Promise()的基础知识已经掌握，清楚 JavaScript 的任务编排，主要针对自己已往的错误理解进行纠正。1234567891011121314151617181920212223242526272829303132let p1 &#x3D; new Promise(function(reslove, reject)&amp;#123;">
+    <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849debunce(f) &amp;#123;  let timePoint &#x3D; null;  return function () &amp;#123;    clearTimeout(timePoint);    timePoint &#x3D;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="理解Promise的.all()和.race()">
-<meta property="og:url" content="https://lvapi.github.io/2023/03/19/%E7%90%86%E8%A7%A3Promise%E7%9A%84-all-%E5%92%8C-race/index.html">
+<meta property="og:title" content="vue mixins中常用的方法-节流 防抖 深克隆">
+<meta property="og:url" content="https://lvapi.github.io/2023/03/20/vue-mixins%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95-%E8%8A%82%E6%B5%81-%E9%98%B2%E6%8A%96-%E6%B7%B1%E5%85%8B%E9%9A%86/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="这里假设对于读者 JavaScript 引擎的单线程执行机制和 Promise()的基础知识已经掌握，清楚 JavaScript 的任务编排，主要针对自己已往的错误理解进行纠正。1234567891011121314151617181920212223242526272829303132let p1 &#x3D; new Promise(function(reslove, reject)&amp;#123;">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849debunce(f) &amp;#123;  let timePoint &#x3D; null;  return function () &amp;#123;    clearTimeout(timePoint);    timePoint &#x3D;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-03-19T14:24:23.000Z">
-<meta property="article:modified_time" content="2023-03-19T14:44:59.410Z">
+<meta property="article:published_time" content="2023-03-20T05:42:21.000Z">
+<meta property="article:modified_time" content="2023-03-20T06:00:26.479Z">
 <meta property="article:author" content="lvapi">
-<meta property="article:tag" content="ES6">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>理解Promise的.all()和.race() - Hexo</title>
+  <title>vue mixins中常用的方法-节流 防抖 深克隆 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="理解Promise的.all()和.race()"></span>
+            <span id="subtitle" data-typed-text="vue mixins中常用的方法-节流 防抖 深克隆"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-03-19 22:24" pubdate>
-          2023年3月19日 晚上
+        <time datetime="2023-03-20 13:42" pubdate>
+          2023年3月20日 下午
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          924 字
+          1.2k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          8 分钟
+          11 分钟
         
       </span>
     
@@ -268,13 +268,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">理解Promise的.all()和.race()</h1>
+            <h1 style="display: none">vue mixins中常用的方法-节流 防抖 深克隆</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="这里假设对于读者-JavaScript-引擎的单线程执行机制和-Promise-的基础知识已经掌握，清楚-JavaScript-的任务编排，主要针对自己已往的错误理解进行纠正。"><a href="#这里假设对于读者-JavaScript-引擎的单线程执行机制和-Promise-的基础知识已经掌握，清楚-JavaScript-的任务编排，主要针对自己已往的错误理解进行纠正。" class="headerlink" title="这里假设对于读者 JavaScript 引擎的单线程执行机制和 Promise()的基础知识已经掌握，清楚 JavaScript 的任务编排，主要针对自己已往的错误理解进行纠正。"></a>这里假设对于读者 JavaScript 引擎的单线程执行机制和 Promise()的基础知识已经掌握，清楚 JavaScript 的任务编排，主要针对自己已往的错误理解进行纠正。</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-type">let</span> <span class="hljs-variable">p1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(function(reslove, reject)&#123;<br>    console.log(p1)<br>    reslove(<span class="hljs-number">1</span>)<br>&#125;)<br><span class="hljs-type">let</span> <span class="hljs-variable">p2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(function(reslove, reject)&#123;<br>    console.log(p2)<br>    reject(<span class="hljs-number">2</span>)<br>&#125;)<br><span class="hljs-type">let</span> <span class="hljs-variable">p3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(function(reslove, reject)&#123;<br>    console.log(p3)<br>    reslove(<span class="hljs-number">3</span>)<br>&#125;)<br><span class="hljs-type">let</span> <span class="hljs-variable">p</span> <span class="hljs-operator">=</span> Promise()<br>p.all([p1, p2, p3]).then(res=&gt;&#123;<br>    console.lg(res)<br>&#125;).<span class="hljs-keyword">catch</span>(error=&gt;&#123;<br>   console.lg(error)<br>&#125;)<br>p.race([p1, p2, p3]).then(res=&gt;&#123;<br>    console.lg(res)<br>&#125;).<span class="hljs-keyword">catch</span>(error=&gt;&#123;<br>   console.lg(error)<br>&#125;)<br><br><span class="hljs-keyword">try</span> &#123;<br>    <span class="hljs-type">let</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> await <span class="hljs-title function_">p1</span><span class="hljs-params">()</span><br>    <span class="hljs-type">let</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> await <span class="hljs-title function_">p2</span><span class="hljs-params">(a)</span><br>    <span class="hljs-type">let</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> await <span class="hljs-title function_">p3</span><span class="hljs-params">(b)</span><br>    <span class="hljs-built_in">this</span>.doSomeThingSuccess()<br>  &#125; <span class="hljs-keyword">catch</span> (error) &#123;<br>    <span class="hljs-built_in">this</span>.doSomeThingError()  <br>  &#125;<br></code></pre></td></tr></table></figure>
-<h4 id="因为-all-函数通常用于执行事务性操作，只有所有事物执行成功时才会将状态修改为成功状态。起初以为所有操作是串联执行，当遇到执行失败时直接退出执行，当实践后发现所有的操作其实是并联执行的，因为每个操作之间并无因果关系同时执行在执行完成后在判断每个-Promise-的状态，-race-的操作执行同为并联执行。-当遇到具有依赖关系是选择使用-await-并进行-try-catch-进行异常捕获"><a href="#因为-all-函数通常用于执行事务性操作，只有所有事物执行成功时才会将状态修改为成功状态。起初以为所有操作是串联执行，当遇到执行失败时直接退出执行，当实践后发现所有的操作其实是并联执行的，因为每个操作之间并无因果关系同时执行在执行完成后在判断每个-Promise-的状态，-race-的操作执行同为并联执行。-当遇到具有依赖关系是选择使用-await-并进行-try-catch-进行异常捕获" class="headerlink" title="因为.all() 函数通常用于执行事务性操作，只有所有事物执行成功时才会将状态修改为成功状态。起初以为所有操作是串联执行，当遇到执行失败时直接退出执行，当实践后发现所有的操作其实是并联执行的，因为每个操作之间并无因果关系同时执行在执行完成后在判断每个 Promise 的状态，.race() 的操作执行同为并联执行。 当遇到具有依赖关系是选择使用 await 并进行 try-catch 进行异常捕获"></a>因为.all() 函数通常用于执行事务性操作，只有所有事物执行成功时才会将状态修改为成功状态。起初以为所有操作是串联执行，当遇到执行失败时直接退出执行，当实践后发现所有的操作其实是并联执行的，因为每个操作之间并无因果关系同时执行在执行完成后在判断每个 Promise 的状态，.race() 的操作执行同为并联执行。 当遇到具有依赖关系是选择使用 await 并进行 try-catch 进行异常捕获</h4>
+                <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs java">debunce(f) &#123;<br>  <span class="hljs-type">let</span> <span class="hljs-variable">timePoint</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>  <span class="hljs-keyword">return</span> function () &#123;<br>    clearTimeout(timePoint);<br>    timePoint = setTimeout(() =&gt; &#123;<br>      f.apply(<span class="hljs-built_in">this</span>, arguments);<br>    &#125;, <span class="hljs-number">1000</span>);<br>  &#125;;<br>&#125;,<br><br><br>throttling(f)&#123;<br>  <span class="hljs-type">let</span> <span class="hljs-variable">isRunning</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span><br>  <span class="hljs-keyword">return</span> function()&#123;<br>    <span class="hljs-keyword">if</span>(isRunning == <span class="hljs-literal">true</span>)&#123;<br>      <span class="hljs-keyword">return</span><br>    &#125;<span class="hljs-keyword">else</span>&#123;<br>      setTimeout(()=&gt;&#123;<br>        f.apply(<span class="hljs-built_in">this</span>, arguments)<br>      &#125;, <span class="hljs-number">1000</span>)<br>    &#125;<br>  &#125;<br>&#125;,<br><br>cloneDeep(info)&#123;<br>  <span class="hljs-keyword">if</span>(info == <span class="hljs-literal">null</span>)&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span><br>  &#125;<br>  <span class="hljs-type">const</span> <span class="hljs-variable">infoType</span> <span class="hljs-operator">=</span> typeof info<br>  <span class="hljs-title function_">if</span><span class="hljs-params">(Array.isArray(info)</span> )&#123;<br>    <span class="hljs-type">const</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> info.length;<br>    <span class="hljs-type">let</span> <span class="hljs-variable">array</span> <span class="hljs-operator">=</span> []<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">let</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++)&#123;<br>      <span class="hljs-type">const</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">this</span>.cloneDeep(info[i])<br>      array.push(temp)<br>    &#125;<br>    <span class="hljs-keyword">return</span> array<br>  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(infoType == <span class="hljs-string">&#x27;object&#x27;</span>)&#123;<br>    <span class="hljs-type">const</span> <span class="hljs-variable">keys</span> <span class="hljs-operator">=</span>  Object.keys(info)<br>    <span class="hljs-type">let</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> &#123;&#125;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">let</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; keys.length; i++)&#123;<br>      <span class="hljs-type">let</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">this</span>.cloneDeep(info[keys[i]])<br>      ans[keys[i]] = temp<br>    &#125;<br>    <span class="hljs-keyword">return</span> ans<br>  &#125;<span class="hljs-keyword">else</span>&#123;<br>    <span class="hljs-keyword">return</span> info<br>  &#125;<br>&#125;,<br></code></pre></td></tr></table></figure>
+<h3 id="节流和防抖都是为了避免连续点击造成短时间内的多次请求-防抖在如果连续点击则会取消操作-节流会在一段时间内只请求一次-在初始代码时应当知道闭包的概念-闭包返回一个指针指向相应的地址-那么响应的内存则不会清除这是实现防抖和节流功能的关键。"><a href="#节流和防抖都是为了避免连续点击造成短时间内的多次请求-防抖在如果连续点击则会取消操作-节流会在一段时间内只请求一次-在初始代码时应当知道闭包的概念-闭包返回一个指针指向相应的地址-那么响应的内存则不会清除这是实现防抖和节流功能的关键。" class="headerlink" title="节流和防抖都是为了避免连续点击造成短时间内的多次请求,防抖在如果连续点击则会取消操作,节流会在一段时间内只请求一次.在初始代码时应当知道闭包的概念, 闭包返回一个指针指向相应的地址, 那么响应的内存则不会清除这是实现防抖和节流功能的关键。"></a>节流和防抖都是为了避免连续点击造成短时间内的多次请求,防抖在如果连续点击则会取消操作,节流会在一段时间内只请求一次.在初始代码时应当知道闭包的概念, 闭包返回一个指针指向相应的地址, 那么响应的内存则不会清除这是实现防抖和节流功能的关键。</h3><h3 id="因为在JavaScript中对象的复制其实复制的是引用的地址，我们可以通过指针修改内存空间的值。所以当需要修改变量时需要进行深克隆，避免修改原始值。"><a href="#因为在JavaScript中对象的复制其实复制的是引用的地址，我们可以通过指针修改内存空间的值。所以当需要修改变量时需要进行深克隆，避免修改原始值。" class="headerlink" title="因为在JavaScript中对象的复制其实复制的是引用的地址，我们可以通过指针修改内存空间的值。所以当需要修改变量时需要进行深克隆，避免修改原始值。"></a>因为在JavaScript中对象的复制其实复制的是引用的地址，我们可以通过指针修改内存空间的值。所以当需要修改变量时需要进行深克隆，避免修改原始值。</h3><h3 id="补充关于内存空间-基本值因为最大字节数固定可以分配固定的内存空间所有存储在栈中，对象的大小不定会存储在堆中，然后栈中存储相应的指针，赋值时其实赋值的是引用的地址。"><a href="#补充关于内存空间-基本值因为最大字节数固定可以分配固定的内存空间所有存储在栈中，对象的大小不定会存储在堆中，然后栈中存储相应的指针，赋值时其实赋值的是引用的地址。" class="headerlink" title="补充关于内存空间: 基本值因为最大字节数固定可以分配固定的内存空间所有存储在栈中，对象的大小不定会存储在堆中，然后栈中存储相应的指针，赋值时其实赋值的是引用的地址。"></a>补充关于内存空间: 基本值因为最大字节数固定可以分配固定的内存空间所有存储在栈中，对象的大小不定会存储在堆中，然后栈中存储相应的指针，赋值时其实赋值的是引用的地址。</h3><h3 id="tips-在实践开发中建议使用开源库，如lodash-避免自己手动实现，清楚了解掌握其中原理即可。"><a href="#tips-在实践开发中建议使用开源库，如lodash-避免自己手动实现，清楚了解掌握其中原理即可。" class="headerlink" title="tips: 在实践开发中建议使用开源库，如lodash,避免自己手动实现，清楚了解掌握其中原理即可。"></a>tips: 在实践开发中建议使用开源库，如lodash,避免自己手动实现，清楚了解掌握其中原理即可。</h3>
                 
               </div>
             
@@ -286,7 +286,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/ES6/">#ES6</a>
+        <a href="/tags/JavaScript/">#JavaScript</a>
       
     </div>
   
@@ -298,8 +298,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>理解Promise的.all()和.race()</div>
-      <div>https://lvapi.github.io/2023/03/19/理解Promise的-all-和-race/</div>
+      <div>vue mixins中常用的方法-节流 防抖 深克隆</div>
+      <div>https://lvapi.github.io/2023/03/20/vue-mixins中常用的方法-节流-防抖-深克隆/</div>
     </div>
     <div class="license-meta">
       
@@ -311,7 +311,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年3月19日</div>
+          <div>2023年3月20日</div>
         </div>
       
       
@@ -341,18 +341,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/03/20/vue-mixins%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95-%E8%8A%82%E6%B5%81-%E9%98%B2%E6%8A%96-%E6%B7%B1%E5%85%8B%E9%9A%86/" title="vue mixins中常用的方法-节流 防抖 深克隆">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">vue mixins中常用的方法-节流 防抖 深克隆</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/03/19/JavaScript%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" title="JavaScript箭头函数">
-                        <span class="hidden-mobile">JavaScript箭头函数</span>
+                      <a href="/2023/03/19/%E7%90%86%E8%A7%A3Promise%E7%9A%84-all-%E5%92%8C-race/" title="理解Promise的.all()和.race()">
+                        <span class="hidden-mobile">理解Promise的.all()和.race()</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
