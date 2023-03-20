@@ -16,22 +16,22 @@
   <meta name="author" content="lvapi">
   <meta name="keywords" content="">
   
-    <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849debunce(f) &amp;#123;  let timePoint &#x3D; null;  return function () &amp;#123;    clearTimeout(timePoint);    timePoint &#x3D;">
+    <meta name="description" content="今天在工作的过程中测试人员提出,实现的不同的页面中相同业务功能的表格同一字段的表格宽度在不同页面中是不一致的，因为在每个不同的页面进行了不同的表格配置的定义，这不只造成了页面的不美观，同时对于后期的统一维护造成的巨大的不便。一个好的文档结构对于实现高效的开发，和后期维护是十分重要的。对于后台维护系统可以实行一下目录。(1) 顶层 mixins.js文件 - 其中可以放常用的工具方法，如下载，克隆等">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue mixins中常用的方法-节流 防抖 深克隆">
-<meta property="og:url" content="https://lvapi.github.io/2023/03/20/vue-mixins%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95-%E8%8A%82%E6%B5%81-%E9%98%B2%E6%8A%96-%E6%B7%B1%E5%85%8B%E9%9A%86/index.html">
+<meta property="og:title" content="关于文档结构的一些反思">
+<meta property="og:url" content="https://lvapi.github.io/2023/03/20/%E5%85%B3%E4%BA%8E%E6%96%87%E6%A1%A3%E7%BB%93%E6%9E%84%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%8D%E6%80%9D/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849debunce(f) &amp;#123;  let timePoint &#x3D; null;  return function () &amp;#123;    clearTimeout(timePoint);    timePoint &#x3D;">
+<meta property="og:description" content="今天在工作的过程中测试人员提出,实现的不同的页面中相同业务功能的表格同一字段的表格宽度在不同页面中是不一致的，因为在每个不同的页面进行了不同的表格配置的定义，这不只造成了页面的不美观，同时对于后期的统一维护造成的巨大的不便。一个好的文档结构对于实现高效的开发，和后期维护是十分重要的。对于后台维护系统可以实行一下目录。(1) 顶层 mixins.js文件 - 其中可以放常用的工具方法，如下载，克隆等">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-03-20T05:42:21.000Z">
-<meta property="article:modified_time" content="2023-03-20T06:00:26.479Z">
+<meta property="article:published_time" content="2023-03-20T13:49:50.000Z">
+<meta property="article:modified_time" content="2023-03-20T14:05:17.290Z">
 <meta property="article:author" content="lvapi">
-<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="vue.js">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>vue mixins中常用的方法-节流 防抖 深克隆 - Hexo</title>
+  <title>关于文档结构的一些反思 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="vue mixins中常用的方法-节流 防抖 深克隆"></span>
+            <span id="subtitle" data-typed-text="关于文档结构的一些反思"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-03-20 13:42" pubdate>
-          2023年3月20日 下午
+        <time datetime="2023-03-20 21:49" pubdate>
+          2023年3月20日 晚上
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          302 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          11 分钟
+          3 分钟
         
       </span>
     
@@ -268,13 +268,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">vue mixins中常用的方法-节流 防抖 深克隆</h1>
+            <h1 style="display: none">关于文档结构的一些反思</h1>
             
             
               <div class="markdown-body">
                 
-                <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs java">debunce(f) &#123;<br>  <span class="hljs-type">let</span> <span class="hljs-variable">timePoint</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>  <span class="hljs-keyword">return</span> function () &#123;<br>    clearTimeout(timePoint);<br>    timePoint = setTimeout(() =&gt; &#123;<br>      f.apply(<span class="hljs-built_in">this</span>, arguments);<br>    &#125;, <span class="hljs-number">1000</span>);<br>  &#125;;<br>&#125;,<br><br><br>throttling(f)&#123;<br>  <span class="hljs-type">let</span> <span class="hljs-variable">isRunning</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span><br>  <span class="hljs-keyword">return</span> function()&#123;<br>    <span class="hljs-keyword">if</span>(isRunning == <span class="hljs-literal">true</span>)&#123;<br>      <span class="hljs-keyword">return</span><br>    &#125;<span class="hljs-keyword">else</span>&#123;<br>      setTimeout(()=&gt;&#123;<br>        f.apply(<span class="hljs-built_in">this</span>, arguments)<br>      &#125;, <span class="hljs-number">1000</span>)<br>    &#125;<br>  &#125;<br>&#125;,<br><br>cloneDeep(info)&#123;<br>  <span class="hljs-keyword">if</span>(info == <span class="hljs-literal">null</span>)&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span><br>  &#125;<br>  <span class="hljs-type">const</span> <span class="hljs-variable">infoType</span> <span class="hljs-operator">=</span> typeof info<br>  <span class="hljs-title function_">if</span><span class="hljs-params">(Array.isArray(info)</span> )&#123;<br>    <span class="hljs-type">const</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> info.length;<br>    <span class="hljs-type">let</span> <span class="hljs-variable">array</span> <span class="hljs-operator">=</span> []<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">let</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++)&#123;<br>      <span class="hljs-type">const</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">this</span>.cloneDeep(info[i])<br>      array.push(temp)<br>    &#125;<br>    <span class="hljs-keyword">return</span> array<br>  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(infoType == <span class="hljs-string">&#x27;object&#x27;</span>)&#123;<br>    <span class="hljs-type">const</span> <span class="hljs-variable">keys</span> <span class="hljs-operator">=</span>  Object.keys(info)<br>    <span class="hljs-type">let</span> <span class="hljs-variable">ans</span> <span class="hljs-operator">=</span> &#123;&#125;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">let</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; keys.length; i++)&#123;<br>      <span class="hljs-type">let</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">this</span>.cloneDeep(info[keys[i]])<br>      ans[keys[i]] = temp<br>    &#125;<br>    <span class="hljs-keyword">return</span> ans<br>  &#125;<span class="hljs-keyword">else</span>&#123;<br>    <span class="hljs-keyword">return</span> info<br>  &#125;<br>&#125;,<br></code></pre></td></tr></table></figure>
-<h3 id="节流和防抖都是为了避免连续点击造成短时间内的多次请求-防抖在如果连续点击则会取消操作-节流会在一段时间内只请求一次-在初始代码时应当知道闭包的概念-闭包返回一个指针指向相应的地址-那么响应的内存则不会清除这是实现防抖和节流功能的关键。"><a href="#节流和防抖都是为了避免连续点击造成短时间内的多次请求-防抖在如果连续点击则会取消操作-节流会在一段时间内只请求一次-在初始代码时应当知道闭包的概念-闭包返回一个指针指向相应的地址-那么响应的内存则不会清除这是实现防抖和节流功能的关键。" class="headerlink" title="节流和防抖都是为了避免连续点击造成短时间内的多次请求,防抖在如果连续点击则会取消操作,节流会在一段时间内只请求一次.在初始代码时应当知道闭包的概念, 闭包返回一个指针指向相应的地址, 那么响应的内存则不会清除这是实现防抖和节流功能的关键。"></a>节流和防抖都是为了避免连续点击造成短时间内的多次请求,防抖在如果连续点击则会取消操作,节流会在一段时间内只请求一次.在初始代码时应当知道闭包的概念, 闭包返回一个指针指向相应的地址, 那么响应的内存则不会清除这是实现防抖和节流功能的关键。</h3><h3 id="因为在JavaScript中对象的复制其实复制的是引用的地址，我们可以通过指针修改内存空间的值。所以当需要修改变量时需要进行深克隆，避免修改原始值。"><a href="#因为在JavaScript中对象的复制其实复制的是引用的地址，我们可以通过指针修改内存空间的值。所以当需要修改变量时需要进行深克隆，避免修改原始值。" class="headerlink" title="因为在JavaScript中对象的复制其实复制的是引用的地址，我们可以通过指针修改内存空间的值。所以当需要修改变量时需要进行深克隆，避免修改原始值。"></a>因为在JavaScript中对象的复制其实复制的是引用的地址，我们可以通过指针修改内存空间的值。所以当需要修改变量时需要进行深克隆，避免修改原始值。</h3><h3 id="补充关于内存空间-基本值因为最大字节数固定可以分配固定的内存空间所有存储在栈中，对象的大小不定会存储在堆中，然后栈中存储相应的指针，赋值时其实赋值的是引用的地址。"><a href="#补充关于内存空间-基本值因为最大字节数固定可以分配固定的内存空间所有存储在栈中，对象的大小不定会存储在堆中，然后栈中存储相应的指针，赋值时其实赋值的是引用的地址。" class="headerlink" title="补充关于内存空间: 基本值因为最大字节数固定可以分配固定的内存空间所有存储在栈中，对象的大小不定会存储在堆中，然后栈中存储相应的指针，赋值时其实赋值的是引用的地址。"></a>补充关于内存空间: 基本值因为最大字节数固定可以分配固定的内存空间所有存储在栈中，对象的大小不定会存储在堆中，然后栈中存储相应的指针，赋值时其实赋值的是引用的地址。</h3><h3 id="tips-在实践开发中建议使用开源库，如lodash-避免自己手动实现，清楚了解掌握其中原理即可。"><a href="#tips-在实践开发中建议使用开源库，如lodash-避免自己手动实现，清楚了解掌握其中原理即可。" class="headerlink" title="tips: 在实践开发中建议使用开源库，如lodash,避免自己手动实现，清楚了解掌握其中原理即可。"></a>tips: 在实践开发中建议使用开源库，如lodash,避免自己手动实现，清楚了解掌握其中原理即可。</h3>
+                <h4 id="今天在工作的过程中测试人员提出-实现的不同的页面中相同业务功能的表格同一字段的表格宽度在不同页面中是不一致的，因为在每个不同的页面进行了不同的表格配置的定义，这不只造成了页面的不美观，同时对于后期的统一维护造成的巨大的不便。一个好的文档结构对于实现高效的开发，和后期维护是十分重要的。对于后台维护系统可以实行一下目录。"><a href="#今天在工作的过程中测试人员提出-实现的不同的页面中相同业务功能的表格同一字段的表格宽度在不同页面中是不一致的，因为在每个不同的页面进行了不同的表格配置的定义，这不只造成了页面的不美观，同时对于后期的统一维护造成的巨大的不便。一个好的文档结构对于实现高效的开发，和后期维护是十分重要的。对于后台维护系统可以实行一下目录。" class="headerlink" title="今天在工作的过程中测试人员提出,实现的不同的页面中相同业务功能的表格同一字段的表格宽度在不同页面中是不一致的，因为在每个不同的页面进行了不同的表格配置的定义，这不只造成了页面的不美观，同时对于后期的统一维护造成的巨大的不便。一个好的文档结构对于实现高效的开发，和后期维护是十分重要的。对于后台维护系统可以实行一下目录。"></a>今天在工作的过程中测试人员提出,实现的不同的页面中相同业务功能的表格同一字段的表格宽度在不同页面中是不一致的，因为在每个不同的页面进行了不同的表格配置的定义，这不只造成了页面的不美观，同时对于后期的统一维护造成的巨大的不便。一个好的文档结构对于实现高效的开发，和后期维护是十分重要的。对于后台维护系统可以实行一下目录。</h4><h5 id="1-顶层-mixins-js文件-其中可以放常用的工具方法，如下载，克隆等通用性方法。-css文件分为通用样式组件。-js全局通用常量配置文件。"><a href="#1-顶层-mixins-js文件-其中可以放常用的工具方法，如下载，克隆等通用性方法。-css文件分为通用样式组件。-js全局通用常量配置文件。" class="headerlink" title="(1) 顶层 mixins.js文件 - 其中可以放常用的工具方法，如下载，克隆等通用性方法。.css文件分为通用样式组件。.js全局通用常量配置文件。"></a>(1) 顶层 mixins.js文件 - 其中可以放常用的工具方法，如下载，克隆等通用性方法。.css文件分为通用样式组件。.js全局通用常量配置文件。</h5><h5 id="2-依据业务模块进行划分，mixins-js中放置和业务相关的数据，对于通用性数据进行统一定义。-css文件声明后在全局通用-css中引入。"><a href="#2-依据业务模块进行划分，mixins-js中放置和业务相关的数据，对于通用性数据进行统一定义。-css文件声明后在全局通用-css中引入。" class="headerlink" title="(2) 依据业务模块进行划分，mixins.js中放置和业务相关的数据，对于通用性数据进行统一定义。.css文件声明后在全局通用.css中引入。"></a>(2) 依据业务模块进行划分，mixins.js中放置和业务相关的数据，对于通用性数据进行统一定义。.css文件声明后在全局通用.css中引入。</h5>
                 
               </div>
             
@@ -286,7 +285,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/JavaScript/">#JavaScript</a>
+        <a href="/tags/vue-js/">#vue.js</a>
       
     </div>
   
@@ -298,8 +297,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>vue mixins中常用的方法-节流 防抖 深克隆</div>
-      <div>https://lvapi.github.io/2023/03/20/vue-mixins中常用的方法-节流-防抖-深克隆/</div>
+      <div>关于文档结构的一些反思</div>
+      <div>https://lvapi.github.io/2023/03/20/关于文档结构的一些反思/</div>
     </div>
     <div class="license-meta">
       
@@ -341,18 +340,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/03/20/%E5%85%B3%E4%BA%8E%E6%96%87%E6%A1%A3%E7%BB%93%E6%9E%84%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%8D%E6%80%9D/" title="关于文档结构的一些反思">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">关于文档结构的一些反思</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/03/19/%E7%90%86%E8%A7%A3Promise%E7%9A%84-all-%E5%92%8C-race/" title="理解Promise的.all()和.race()">
-                        <span class="hidden-mobile">理解Promise的.all()和.race()</span>
+                      <a href="/2023/03/20/vue-mixins%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95-%E8%8A%82%E6%B5%81-%E9%98%B2%E6%8A%96-%E6%B7%B1%E5%85%8B%E9%9A%86/" title="vue mixins中常用的方法-节流 防抖 深克隆">
+                        <span class="hidden-mobile">vue mixins中常用的方法-节流 防抖 深克隆</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
