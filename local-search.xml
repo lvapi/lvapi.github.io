@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>leetcode-125验证回文串</title>
+    <link href="/2023/03/25/leetcode-125%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%96%87%E4%B8%B2/"/>
+    <url>/2023/03/25/leetcode-125%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%96%87%E4%B8%B2/</url>
+    
+    <content type="html"><![CDATA[<h3 id="如果在将所有大写字符转换为小写字符、并移除所有非字母数字字符之后，短语正着读和反着读都一样。则可以认为该短语是一个-回文串-。字母和数字都属于字母数字字符。给你一个字符串-s，如果它是-回文串-，返回-true-；否则，返回-false-。来源：力扣（LeetCode）链接：https-leetcode-cn-problems-valid-palindrome著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。"><a href="#如果在将所有大写字符转换为小写字符、并移除所有非字母数字字符之后，短语正着读和反着读都一样。则可以认为该短语是一个-回文串-。字母和数字都属于字母数字字符。给你一个字符串-s，如果它是-回文串-，返回-true-；否则，返回-false-。来源：力扣（LeetCode）链接：https-leetcode-cn-problems-valid-palindrome著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。" class="headerlink" title="如果在将所有大写字符转换为小写字符、并移除所有非字母数字字符之后，短语正着读和反着读都一样。则可以认为该短语是一个 回文串 。字母和数字都属于字母数字字符。给你一个字符串 s，如果它是 回文串 ，返回 true ；否则，返回 false 。来源：力扣（LeetCode）链接：https://leetcode.cn/problems/valid-palindrome著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。"></a>如果在将所有大写字符转换为小写字符、并移除所有非字母数字字符之后，短语正着读和反着读都一样。则可以认为该短语是一个 回文串 。字母和数字都属于字母数字字符。给你一个字符串 s，如果它是 回文串 ，返回 true ；否则，返回 false 。来源：力扣（LeetCode）链接：<a href="https://leetcode.cn/problems/valid-palindrome%E8%91%97%E4%BD%9C%E6%9D%83%E5%BD%92%E9%A2%86%E6%89%A3%E7%BD%91%E7%BB%9C%E6%89%80%E6%9C%89%E3%80%82%E5%95%86%E4%B8%9A%E8%BD%AC%E8%BD%BD%E8%AF%B7%E8%81%94%E7%B3%BB%E5%AE%98%E6%96%B9%E6%8E%88%E6%9D%83%EF%BC%8C%E9%9D%9E%E5%95%86%E4%B8%9A%E8%BD%AC%E8%BD%BD%E8%AF%B7%E6%B3%A8%E6%98%8E%E5%87%BA%E5%A4%84%E3%80%82">https://leetcode.cn/problems/valid-palindrome著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</a></h3><h4 id="思路：对撞指针，当不是字母或数字是跳过，否则进行比较。"><a href="#思路：对撞指针，当不是字母或数字是跳过，否则进行比较。" class="headerlink" title="思路：对撞指针，当不是字母或数字是跳过，否则进行比较。"></a>思路：对撞指针，当不是字母或数字是跳过，否则进行比较。</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isPalindrome</span><span class="hljs-params">(String s)</span> &#123;<br>      <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> s.length() - <span class="hljs-number">1</span>, left = <span class="hljs-number">0</span>;<br>      <span class="hljs-keyword">while</span>(right &gt; left)&#123;<br>          <span class="hljs-keyword">while</span>(left &lt; right &amp;&amp; Character.isLetterOrDigit(s.charAt(left)) == <span class="hljs-literal">false</span>)&#123;<br>              left++;<br>          &#125;<br>          <span class="hljs-keyword">while</span>(left &lt; right &amp;&amp; Character.isLetterOrDigit(s.charAt(right)) == <span class="hljs-literal">false</span>)&#123;<br>              right--;<br>          &#125;<br>          <span class="hljs-keyword">if</span>(Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right)))&#123;<br>              <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>          &#125;<br>          left++;<br>          right--;<br>      &#125; <br>      <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  &#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>双指针</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>leetcode-872叶子相似的树</title>
     <link href="/2023/03/22/leetcode-872%E5%8F%B6%E5%AD%90%E7%9B%B8%E4%BC%BC%E7%9A%84%E6%A0%91/"/>
     <url>/2023/03/22/leetcode-872%E5%8F%B6%E5%AD%90%E7%9B%B8%E4%BC%BC%E7%9A%84%E6%A0%91/</url>
