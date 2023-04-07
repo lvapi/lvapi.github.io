@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>vuex中的数据在页面刷新时的保存</title>
+    <link href="/2023/04/07/vuex%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E5%9C%A8%E9%A1%B5%E9%9D%A2%E5%88%B7%E6%96%B0%E6%97%B6%E7%9A%84%E4%BF%9D%E5%AD%98/"/>
+    <url>/2023/04/07/vuex%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E5%9C%A8%E9%A1%B5%E9%9D%A2%E5%88%B7%E6%96%B0%E6%97%B6%E7%9A%84%E4%BF%9D%E5%AD%98/</url>
+    
+    <content type="html"><![CDATA[<h4 id="关于vuex的几个注意点"><a href="#关于vuex的几个注意点" class="headerlink" title="关于vuex的几个注意点:"></a>关于vuex的几个注意点:</h4><p>(1)在通常情况下选择定义全局变量也可以实现组件之间的信息共享，但是，这时存储数据并非是响应式的。vuex在使用时在计算属性中即可。<br>(2)我们不能通过获取state直接进行数据的修改，需要通过mutation进行提交修改。<br>(3)vuex中只能有一个State对象实例,这样的好处是可以快速定位状态避免代码混乱难以理解。<br>(4)在进行模块划分是mutations和getters接收的第一个参数是当前模块的state<br>(5)getters示例：gettersTest(state, getters, rootState) getters为局部，rootState为全局 actions示例： actionsTest({state, commit, rootstate}) state为局部 rootstate为全局state。<br>方法一：在store文件中使用localStorage保存，重新加载时进行取值。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;beforeunload&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">setItem</span>(<span class="hljs-string">&#x27;store&#x27;</span>, <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(store.<span class="hljs-property">state</span>))<br>&#125;)<br><br><span class="hljs-comment">// 在页面加载时从 Local Storage 中获取 state</span><br><span class="hljs-keyword">const</span> storeData = <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">getItem</span>(<span class="hljs-string">&#x27;store&#x27;</span>)<br><span class="hljs-keyword">if</span> (storeData) &#123;<br>  store.<span class="hljs-title function_">replaceState</span>(<span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(storeData))<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>vue.js</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>实现一个JSONP</title>
     <link href="/2023/04/07/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAJSONP/"/>
     <url>/2023/04/07/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAJSONP/</url>
