@@ -16,22 +16,22 @@
   <meta name="author" content="lvapi">
   <meta name="keywords" content="">
   
-    <meta name="description" content="在日常开发中我们经常会遇到兄弟组件之间的数据传递，这时我们需要使用事件总线的方法帮助我们解决问题，代码如下。 12345678910111213141516171819202122232425262728293031323334353637383940414243export  default class EventsEmitter&amp;#123;  constructor()&amp;#123;    th">
+    <meta name="description" content="前后端分离可以将项目解耦提高开发效率，但是前后端分离使得前端工程和后端工程部署在不同的服务器，依据浏览器的同源策略(协议相同，域名相同，端口相同)前端访问部署在其它服务器的请求时将跨域，我们可以选择使用vue.config.js（配置代理）加axios的方式或者JSONP的解决。JSONP的实现代码如下: 1234567891011121314151617181920212223242526272">
 <meta property="og:type" content="article">
-<meta property="og:title" content="EventsEmitter事件总线">
-<meta property="og:url" content="https://lvapi.github.io/2023/04/06/EventsEmitter%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/index.html">
+<meta property="og:title" content="实现一个JSONP">
+<meta property="og:url" content="https://lvapi.github.io/2023/04/07/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAJSONP/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="在日常开发中我们经常会遇到兄弟组件之间的数据传递，这时我们需要使用事件总线的方法帮助我们解决问题，代码如下。 12345678910111213141516171819202122232425262728293031323334353637383940414243export  default class EventsEmitter&amp;#123;  constructor()&amp;#123;    th">
+<meta property="og:description" content="前后端分离可以将项目解耦提高开发效率，但是前后端分离使得前端工程和后端工程部署在不同的服务器，依据浏览器的同源策略(协议相同，域名相同，端口相同)前端访问部署在其它服务器的请求时将跨域，我们可以选择使用vue.config.js（配置代理）加axios的方式或者JSONP的解决。JSONP的实现代码如下: 1234567891011121314151617181920212223242526272">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-04-06T03:56:11.000Z">
-<meta property="article:modified_time" content="2023-04-06T03:59:18.397Z">
+<meta property="article:published_time" content="2023-04-07T06:02:55.000Z">
+<meta property="article:modified_time" content="2023-04-07T07:14:08.943Z">
 <meta property="article:author" content="lvapi">
 <meta property="article:tag" content="vue.js">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>EventsEmitter事件总线 - Hexo</title>
+  <title>实现一个JSONP - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="EventsEmitter事件总线"></span>
+            <span id="subtitle" data-typed-text="实现一个JSONP"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-04-06 11:56" pubdate>
-          2023年4月6日 中午
+        <time datetime="2023-04-07 14:02" pubdate>
+          2023年4月7日 下午
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          868 字
+          1.3k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          8 分钟
+          11 分钟
         
       </span>
     
@@ -268,13 +268,14 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">EventsEmitter事件总线</h1>
+            <h1 style="display: none">实现一个JSONP</h1>
             
             
               <div class="markdown-body">
                 
-                <p>在日常开发中我们经常会遇到兄弟组件之间的数据传递，这时我们需要使用事件总线的方法帮助我们解决问题，代码如下。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs javaScript"><span class="hljs-keyword">export</span>  <span class="hljs-keyword">default</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">EventsEmitter</span>&#123;<br><br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">events</span> = &#123;&#125;<br>  &#125;<br><br>  <span class="hljs-comment">/* 事件注册 */</span><br>  <span class="hljs-title function_">on</span>(<span class="hljs-params">event, callback</span>)&#123;<br>    <span class="hljs-keyword">let</span> callbacks = <span class="hljs-variable language_">this</span>.<span class="hljs-property">events</span>[event] || []<br>    callbacks.<span class="hljs-title function_">push</span>(callback)<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">events</span>[event] = callbacks<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span><br>  &#125;<br><br>  <span class="hljs-comment">/* 取消事件注册 */</span><br>  <span class="hljs-title function_">off</span>(<span class="hljs-params">event, callback</span>)&#123;<br>    <span class="hljs-keyword">let</span> callbacks = <span class="hljs-variable language_">this</span>.<span class="hljs-property">events</span>[event];<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">events</span>[event] = callbacks &amp;&amp; callbacks.<span class="hljs-title function_">filter</span>(<span class="hljs-function"><span class="hljs-params">fn</span> =&gt;</span> fn !== callback);<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>;<br>  &#125;<br><br>  <span class="hljs-comment">/* 触发事件的执行 */</span><br>  <span class="hljs-title function_">emit</span>(<span class="hljs-params">event, ...args</span>)&#123;<br>    <span class="hljs-keyword">let</span> callbacks = <span class="hljs-variable language_">this</span>.<span class="hljs-property">events</span>[event]<br>    callbacks.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">callback</span> =&gt;</span> &#123;<br>        <span class="hljs-title function_">callback</span>(...args)<br>    &#125;);<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span><br>  &#125;<br><br>  <span class="hljs-comment">/* 注册只执行一次的事件 */</span><br>  <span class="hljs-title function_">once</span>(<span class="hljs-params">event, callback</span>)&#123;<br>    <span class="hljs-keyword">let</span> callbacks = <span class="hljs-variable language_">this</span>.<span class="hljs-property">events</span>[event] || []<br>    <span class="hljs-keyword">let</span> <span class="hljs-title function_">fn</span> = (<span class="hljs-params">...args</span>)=&gt;&#123;<br>      <span class="hljs-title function_">callback</span>(...args)<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">off</span>(event, fn)<br>    &#125;<br>    callbacks.<span class="hljs-title function_">push</span>(fn)<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">events</span>[event] = callbacks<br>    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span><br>  &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+                <p>前后端分离可以将项目解耦提高开发效率，但是前后端分离使得前端工程和后端工程部署在不同的服务器，依据浏览器的同源策略(协议相同，域名相同，端口相同)前端访问部署在其它服务器的请求时将跨域，我们可以选择使用vue.config.js（配置代理）加axios的方式或者JSONP的解决。JSONP的实现代码如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs javaScript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">jsonp</span>(<span class="hljs-params">url, params, callback</span>) &#123;<br>  <span class="hljs-comment">// 判断是否含有参数</span><br>  <span class="hljs-keyword">let</span> queryString = url.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;?&quot;</span>) === -<span class="hljs-number">1</span> ? <span class="hljs-string">&quot;?&quot;</span> : <span class="hljs-string">&quot;&amp;&quot;</span>;<br><br>  <span class="hljs-comment">// 添加参数</span><br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> k <span class="hljs-keyword">in</span> params) &#123;<br>    <span class="hljs-keyword">if</span> (params.<span class="hljs-title function_">hasOwnProperty</span>(k)) &#123;<br>      queryString += k + <span class="hljs-string">&quot;=&quot;</span> + params[k] + <span class="hljs-string">&quot;&amp;&quot;</span>;<br>    &#125;<br>  &#125;<br><br>  <span class="hljs-comment">// 处理回调函数名</span><br>  <span class="hljs-keyword">let</span> random = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>()<br>      .<span class="hljs-title function_">toString</span>()<br>      .<span class="hljs-title function_">replace</span>(<span class="hljs-string">&quot;.&quot;</span>, <span class="hljs-string">&quot;&quot;</span>),<br>    callbackName = <span class="hljs-string">&quot;myJsonp&quot;</span> + random;<br><br>  <span class="hljs-comment">// 添加回调函数</span><br>  queryString += <span class="hljs-string">&quot;callback=&quot;</span> + callbackName;<br><br>  <span class="hljs-comment">// 构建请求</span><br>  <span class="hljs-keyword">let</span> scriptNode = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;script&quot;</span>);<br>  scriptNode.<span class="hljs-property">src</span> = url + queryString;<br><br>  <span class="hljs-variable language_">window</span>[callbackName] = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-comment">// 调用回调函数</span><br>    <span class="hljs-title function_">callback</span>(...<span class="hljs-variable language_">arguments</span>);<br><br>    <span class="hljs-comment">// 删除这个引入的脚本</span><br>    <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByTagName</span>(<span class="hljs-string">&quot;head&quot;</span>)[<span class="hljs-number">0</span>].<span class="hljs-title function_">removeChild</span>(scriptNode);<br>  &#125;;<br><br>  <span class="hljs-comment">// 发起请求</span><br>  <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByTagName</span>(<span class="hljs-string">&quot;head&quot;</span>)[<span class="hljs-number">0</span>].<span class="hljs-title function_">appendChild</span>(scriptNode);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>观察以上代码发现，我们可以访问任何地址的服务也对于数据未进行过滤，其它服务可以通过注入恶意脚本实现服务攻击，同时我们也只可以将数据拼接在url中浏览器会将url缓存，所以JSONP并不是解决跨域问题的第一选择。<br>在实际开发中我们应该选择axios和代理方式同时需要注意一下:\n<br>(1)对于后端返回数据进行过滤校验\n<br>(2)在发布时后端使用Content-Security-Policy字段对于浏览器进行资源和脚本执行进行限制。开发是使用Content-Security-Policy-Report-Only字段记录违规记录\n<br>(3)对于敏感数据使用post请求以免get请求的路径被缓存。</p>
 
                 
               </div>
@@ -299,8 +300,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>EventsEmitter事件总线</div>
-      <div>https://lvapi.github.io/2023/04/06/EventsEmitter事件总线/</div>
+      <div>实现一个JSONP</div>
+      <div>https://lvapi.github.io/2023/04/07/实现一个JSONP/</div>
     </div>
     <div class="license-meta">
       
@@ -312,7 +313,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年4月6日</div>
+          <div>2023年4月7日</div>
         </div>
       
       
@@ -342,18 +343,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/04/07/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAJSONP/" title="实现一个JSONP">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">实现一个JSONP</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/04/03/%E5%9F%BA%E4%BA%8EelementUI-table%E4%BD%BF%E7%94%A8mixins%E5%BC%95%E5%85%A5%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" title="基于elementUI-table使用mixins引入常用操作">
-                        <span class="hidden-mobile">基于elementUI-table使用mixins引入常用操作</span>
+                      <a href="/2023/04/06/EventsEmitter%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/" title="EventsEmitter事件总线">
+                        <span class="hidden-mobile">EventsEmitter事件总线</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
