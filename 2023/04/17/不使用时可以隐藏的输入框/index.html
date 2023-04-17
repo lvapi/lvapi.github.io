@@ -16,22 +16,22 @@
   <meta name="author" content="lvapi">
   <meta name="keywords" content="">
   
-    <meta name="description" content="串联所有单词的子串给定一个字符串 s 和一个字符串数组 words。 words 中所有字符串 长度相同。   s 中的 串联子串 是指一个包含  words 中所有字符串以任意顺序排列连接起来的子串。 例如，如果 words &#x3D; [“ab”,”cd”,”ef”]， 那么 “abcdef”， “abefcd”，”cdabef”， “cdefab”，”efabcd”， 和 “efcdab">
+    <meta name="description" content="12345678910111213141516171819&lt;!DOCTYPE html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;  &lt;head&gt;    &lt;meta charset&#x3D;&quot;UTF-8&quot; &#x2F;&gt;    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;d">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode-30串联所有单词的字串">
-<meta property="og:url" content="https://lvapi.github.io/2023/04/16/leetcode-30%E4%B8%B2%E8%81%94%E6%89%80%E6%9C%89%E5%8D%95%E8%AF%8D%E7%9A%84%E5%AD%97%E4%B8%B2/index.html">
+<meta property="og:title" content="不使用时可以隐藏的输入框">
+<meta property="og:url" content="https://lvapi.github.io/2023/04/17/%E4%B8%8D%E4%BD%BF%E7%94%A8%E6%97%B6%E5%8F%AF%E4%BB%A5%E9%9A%90%E8%97%8F%E7%9A%84%E8%BE%93%E5%85%A5%E6%A1%86/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="串联所有单词的子串给定一个字符串 s 和一个字符串数组 words。 words 中所有字符串 长度相同。   s 中的 串联子串 是指一个包含  words 中所有字符串以任意顺序排列连接起来的子串。 例如，如果 words &#x3D; [“ab”,”cd”,”ef”]， 那么 “abcdef”， “abefcd”，”cdabef”， “cdefab”，”efabcd”， 和 “efcdab">
+<meta property="og:description" content="12345678910111213141516171819&lt;!DOCTYPE html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;  &lt;head&gt;    &lt;meta charset&#x3D;&quot;UTF-8&quot; &#x2F;&gt;    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;d">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-04-16T13:55:30.000Z">
-<meta property="article:modified_time" content="2023-04-16T14:17:01.552Z">
+<meta property="article:published_time" content="2023-04-17T08:13:50.000Z">
+<meta property="article:modified_time" content="2023-04-17T08:16:02.834Z">
 <meta property="article:author" content="lvapi">
-<meta property="article:tag" content="滑动窗口">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>leetcode-30串联所有单词的字串 - Hexo</title>
+  <title>不使用时可以隐藏的输入框 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="leetcode-30串联所有单词的字串"></span>
+            <span id="subtitle" data-typed-text="不使用时可以隐藏的输入框"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-04-16 21:55" pubdate>
-          2023年4月16日 晚上
+        <time datetime="2023-04-17 16:13" pubdate>
+          2023年4月17日 下午
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          2.2k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          10 分钟
+          19 分钟
         
       </span>
     
@@ -268,18 +268,14 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">leetcode-30串联所有单词的字串</h1>
+            <h1 style="display: none">不使用时可以隐藏的输入框</h1>
             
             
               <div class="markdown-body">
                 
-                <ol start="30">
-<li>串联所有单词的子串<br>给定一个字符串 s 和一个字符串数组 words。 words 中所有字符串 长度相同。</li>
-</ol>
-<p> s 中的 串联子串 是指一个包含  words 中所有字符串以任意顺序排列连接起来的子串。</p>
-<p>例如，如果 words &#x3D; [“ab”,”cd”,”ef”]， 那么 “abcdef”， “abefcd”，”cdabef”， “cdefab”，”efabcd”， 和 “efcdab” 都是串联子串。 “acdbef” 不是串联子串，因为他不是任何 words 排列的连接。<br>返回所有串联字串在 s 中的开始索引。你可以以 任意顺序 返回答案。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> List&lt;Integer&gt; <span class="hljs-title function_">findSubstring</span><span class="hljs-params">(String s, String[] words)</span> &#123;<br>       <span class="hljs-type">int</span> <span class="hljs-variable">len</span> <span class="hljs-operator">=</span> words.length;<br>       <span class="hljs-type">int</span> <span class="hljs-variable">wlen</span> <span class="hljs-operator">=</span> words[<span class="hljs-number">0</span>].length();<br>       <span class="hljs-type">int</span> <span class="hljs-variable">sliderLen</span> <span class="hljs-operator">=</span> len * words[<span class="hljs-number">0</span>].length(); <span class="hljs-comment">// 滑动窗口长度</span><br>       List&lt;Integer&gt; ans = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>();<br>       Map&lt;String, Integer&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>();<br>       <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; k &lt; len; k++)&#123;<br>           map.put(words[k], k);<br>       &#125;<br>       <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; s.length(); i++)&#123;<br>           <span class="hljs-type">int</span>[] flag = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[len];<br>           <span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> i;<br>           <span class="hljs-keyword">while</span>(j &lt; i + sliderLen - <span class="hljs-number">1</span>)&#123;<br>               <span class="hljs-keyword">if</span>(j + wlen &gt; s.length())&#123;<br>                   <span class="hljs-keyword">break</span>;<br>               &#125;<br>               <span class="hljs-type">String</span> <span class="hljs-variable">keyWord</span> <span class="hljs-operator">=</span> s.substring(j, j + wlen);<br>               <span class="hljs-keyword">if</span>(map.containsKey(keyWord))&#123;<br>                   flag[map.get(keyWord)] = <span class="hljs-number">1</span>;<br>                   j =  j + wlen;<br>               &#125;<span class="hljs-keyword">else</span>&#123;<br>                   <span class="hljs-keyword">break</span>;<br>               &#125;<br>           &#125;<br>           <span class="hljs-type">boolean</span> <span class="hljs-variable">isAdd</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;<br>           <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">z</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; z &lt; flag.length; z++)&#123;<br>               <span class="hljs-keyword">if</span>(flag[z] == <span class="hljs-number">0</span>)&#123;<br>                   isAdd = <span class="hljs-literal">false</span>;<br>                   <span class="hljs-keyword">break</span>;<br>               &#125;<br>           &#125;<br>           <span class="hljs-keyword">if</span>(isAdd == <span class="hljs-literal">true</span>)&#123;<br>               ans.add(i);<br>           &#125;<br>       &#125;<br>       <span class="hljs-keyword">return</span> ans;<br>        <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>在遇到重复字串时报错<br>“wordgoodgoodgoodbestword”<br>[“word”,”good”,”best”,”good”]</p>
+                <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs HTML"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css&quot;</span> <span class="hljs-attr">integrity</span>=<span class="hljs-string">&quot;sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==&quot;</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">&quot;anonymous&quot;</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;style.css&quot;</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Hidden Search<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;search&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;input&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;Search...&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fas fa-search&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;script.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-keyword">const</span> search = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.search&#x27;</span>)<br><span class="hljs-keyword">const</span> btn = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.btn&#x27;</span>)<br><span class="hljs-keyword">const</span> input = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.input&#x27;</span>)<br><br>btn.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    search.<span class="hljs-property">classList</span>.<span class="hljs-title function_">toggle</span>(<span class="hljs-string">&#x27;active&#x27;</span>)<br>    input.<span class="hljs-title function_">focus</span>()<br>&#125;)<br></code></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-keyword">@import</span> url(<span class="hljs-string">&#x27;https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap&#x27;</span>);<br><br>* &#123;<br>  <span class="hljs-attribute">box-sizing</span>: border-box;<br>&#125;<br><br><span class="hljs-selector-tag">body</span> &#123;<br>  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">linear-gradient</span>(<span class="hljs-number">90deg</span>, <span class="hljs-number">#7d5fff</span>, <span class="hljs-number">#7158e2</span>);<br>  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">&#x27;Roboto&#x27;</span>, sans-serif;<br>  <span class="hljs-attribute">display</span>: flex;<br>  <span class="hljs-attribute">align-items</span>: center;<br>  <span class="hljs-attribute">justify-content</span>: center;<br>  <span class="hljs-attribute">height</span>: <span class="hljs-number">100vh</span>;<br>  <span class="hljs-attribute">overflow</span>: hidden;<br>  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-selector-class">.search</span> &#123;<br>  <span class="hljs-attribute">position</span>: relative;<br>  <span class="hljs-attribute">height</span>: <span class="hljs-number">50px</span>;<br>&#125;<br><br><span class="hljs-selector-class">.search</span> <span class="hljs-selector-class">.input</span> &#123;<br>  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fff</span>;<br>  <span class="hljs-attribute">border</span>: <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">18px</span>;<br>  <span class="hljs-attribute">padding</span>: <span class="hljs-number">15px</span>;<br>  <span class="hljs-attribute">height</span>: <span class="hljs-number">50px</span>;<br>  <span class="hljs-attribute">width</span>: <span class="hljs-number">50px</span>;<br>  <span class="hljs-attribute">transition</span>: width <span class="hljs-number">0.3s</span> ease;<br>&#125;<br><br><span class="hljs-selector-class">.btn</span> &#123;<br>  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fff</span>;<br>  <span class="hljs-attribute">border</span>: <span class="hljs-number">0</span>;<br>  <span class="hljs-attribute">cursor</span>: pointer;<br>  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">24px</span>;<br>  <span class="hljs-attribute">height</span>: <span class="hljs-number">50px</span>;<br>  <span class="hljs-attribute">width</span>: <span class="hljs-number">50px</span>;<br>  <span class="hljs-attribute">transition</span>: transform <span class="hljs-number">0.3s</span> ease;<br>  <span class="hljs-comment">/* 将按钮元素进行浮动将不占据空间 */</span><br>  <span class="hljs-attribute">position</span>: absolute;<br>  <span class="hljs-attribute">top</span>: <span class="hljs-number">0px</span>;<br>  <span class="hljs-attribute">left</span>: <span class="hljs-number">0px</span>;<br>&#125;<br><br><span class="hljs-selector-class">.btn</span><span class="hljs-selector-pseudo">:active</span>,<br><span class="hljs-selector-class">.input</span><span class="hljs-selector-pseudo">:focus</span> &#123;<br>  <span class="hljs-attribute">outline</span>: <span class="hljs-number">0</span>;<br><br>&#125;<br><br><span class="hljs-selector-class">.search</span><span class="hljs-selector-class">.active</span> <span class="hljs-selector-class">.input</span> &#123;<br>  <span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>;<br>&#125;<br><br><span class="hljs-selector-class">.search</span><span class="hljs-selector-class">.active</span> <span class="hljs-selector-class">.btn</span> &#123;<br>  <span class="hljs-attribute">left</span>: auto;<br>  <span class="hljs-attribute">right</span>: <span class="hljs-number">0px</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -292,7 +288,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">#滑动窗口</a>
+        <a href="/tags/JavaScript/">#JavaScript</a>
       
     </div>
   
@@ -304,8 +300,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>leetcode-30串联所有单词的字串</div>
-      <div>https://lvapi.github.io/2023/04/16/leetcode-30串联所有单词的字串/</div>
+      <div>不使用时可以隐藏的输入框</div>
+      <div>https://lvapi.github.io/2023/04/17/不使用时可以隐藏的输入框/</div>
     </div>
     <div class="license-meta">
       
@@ -317,7 +313,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年4月16日</div>
+          <div>2023年4月17日</div>
         </div>
       
       
@@ -347,18 +343,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/04/17/%E4%B8%8D%E4%BD%BF%E7%94%A8%E6%97%B6%E5%8F%AF%E4%BB%A5%E9%9A%90%E8%97%8F%E7%9A%84%E8%BE%93%E5%85%A5%E6%A1%86/" title="不使用时可以隐藏的输入框">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">不使用时可以隐藏的输入框</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/04/13/%E6%8C%89%E9%92%AE%E7%82%B9%E5%87%BB%E5%8F%8D%E9%A6%88%E6%95%88%E6%9E%9C/" title="按钮点击反馈效果">
-                        <span class="hidden-mobile">按钮点击反馈效果</span>
+                      <a href="/2023/04/16/leetcode-30%E4%B8%B2%E8%81%94%E6%89%80%E6%9C%89%E5%8D%95%E8%AF%8D%E7%9A%84%E5%AD%97%E4%B8%B2/" title="leetcode-30串联所有单词的字串">
+                        <span class="hidden-mobile">leetcode-30串联所有单词的字串</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
