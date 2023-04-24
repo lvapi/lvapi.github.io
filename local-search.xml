@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>盒子模型</title>
+    <link href="/2023/04/24/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/"/>
+    <url>/2023/04/24/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/</url>
+    
+    <content type="html"><![CDATA[<p>盒子模型分为W3C和IE模型两种，默认为W3C盒子模型。<br>(1)W3C盒子模型 总宽度 &#x3D; width(内容宽度) + border + padding + margin<br>设置为 box-sizing: content-box;<br>(2)IE盒子模型 总宽度 &#x3D; width + margin<br>设置为 box-sizing: border-box; 此时css中设置的宽度就是 border + content + padding之和。<br>今天在看之前写的代码时发现在不同的样式表中多次设置box-sizing: border-box;这样不是很合理<br>推荐在app.vue文件下或全局样式表中使用以下样式代码进行统一处理：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css">*,<br>*<span class="hljs-selector-pseudo">::after</span>,<br>*<span class="hljs-selector-pseudo">::before</span>&#123;<br>   <span class="hljs-attribute">box-sizing</span>: border-box;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>css</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>不使用时可以隐藏的输入框</title>
     <link href="/2023/04/17/%E4%B8%8D%E4%BD%BF%E7%94%A8%E6%97%B6%E5%8F%AF%E4%BB%A5%E9%9A%90%E8%97%8F%E7%9A%84%E8%BE%93%E5%85%A5%E6%A1%86/"/>
     <url>/2023/04/17/%E4%B8%8D%E4%BD%BF%E7%94%A8%E6%97%B6%E5%8F%AF%E4%BB%A5%E9%9A%90%E8%97%8F%E7%9A%84%E8%BE%93%E5%85%A5%E6%A1%86/</url>
